@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="142" y1="42" x2="1048" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1015"/>
+      <stop offset="0.58" stop-color="#06080B"/>
+      <stop offset="1" stop-color="#030405"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(952 118) rotate(137.221) scale(356.284 286.982)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardStroke" x1="726" y1="110" x2="1088" y2="518" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#181A1F"/>
+      <stop offset="0.56" stop-color="#0B0D11"/>
+      <stop offset="1" stop-color="#040506"/>
+    </linearGradient>
+    <linearGradient id="surfaceStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="frameBack" x1="0.62" y1="0.14" x2="0.94" y2="0.88">
+      <stop stop-color="#AAB4C3"/>
+      <stop offset="1" stop-color="#616B7B"/>
+    </linearGradient>
+    <linearGradient id="frameMid" x1="0.2" y1="0.12" x2="0.84" y2="0.9">
+      <stop stop-color="#E2E8F0"/>
+      <stop offset="1" stop-color="#B9C4D1"/>
+    </linearGradient>
+    <linearGradient id="frameFront" x1="0.18" y1="0.1" x2="0.78" y2="0.92">
+      <stop stop-color="#F8FAFD"/>
+      <stop offset="1" stop-color="#E0E6EF"/>
+    </linearGradient>
+    <linearGradient id="edgeBack" x1="0.64" y1="0.16" x2="0.94" y2="0.86">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="edgeMid" x1="0.2" y1="0.14" x2="0.84" y2="0.9">
+      <stop stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="edgeFront" x1="0.18" y1="0.12" x2="0.8" y2="0.94">
+      <stop stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="brandMark" x1="0.36" y1="0.24" x2="0.8" y2="0.86">
+      <stop stop-color="#BCC5D3"/>
+      <stop offset="1" stop-color="#7C8798"/>
+    </linearGradient>
+    <linearGradient id="brandHighlight" x1="0.34" y1="0.24" x2="0.76" y2="0.78">
+      <stop stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="952" cy="118" r="260" fill="url(#halo)"/>
+
+  <g opacity="0.06">
+    <path d="M0 100H1200" stroke="#FFFFFF"/>
+    <path d="M0 198H1200" stroke="#FFFFFF"/>
+    <path d="M0 296H1200" stroke="#FFFFFF"/>
+    <path d="M0 394H1200" stroke="#FFFFFF"/>
+    <path d="M0 492H1200" stroke="#FFFFFF"/>
+    <path d="M0 590H1200" stroke="#FFFFFF"/>
+    <path d="M132 0V630" stroke="#FFFFFF"/>
+    <path d="M304 0V630" stroke="#FFFFFF"/>
+    <path d="M476 0V630" stroke="#FFFFFF"/>
+    <path d="M648 0V630" stroke="#FFFFFF"/>
+    <path d="M820 0V630" stroke="#FFFFFF"/>
+    <path d="M992 0V630" stroke="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(52 50)">
+    <rect width="84" height="84" rx="24" fill="#020304"/>
+    <rect x="1" y="1" width="82" height="82" rx="23" fill="url(#surface)" stroke="url(#surfaceStroke)" stroke-width="2"/>
+    <ellipse cx="42" cy="60" rx="20" ry="3.8" fill="white" fill-opacity="0.08"/>
+    <path d="M43 22H61C63.5 22 65.5 24 65.5 26.5V37C65.5 39.5 63.5 41.5 61 41.5H43C40.5 41.5 38.5 39.5 38.5 37V26.5C38.5 24 40.5 22 43 22Z" fill="url(#frameBack)" stroke="url(#edgeBack)" stroke-width="0.7" transform="rotate(5 52 31.75)"/>
+    <path d="M27 31H50C52.5 31 54.5 33 54.5 35.5V48.5C54.5 51 52.5 53 50 53H27C24.5 53 22.5 51 22.5 48.5V35.5C22.5 33 24.5 31 27 31Z" fill="url(#frameMid)" stroke="url(#edgeMid)" stroke-width="0.7" transform="rotate(-4 38.5 42)"/>
+    <path d="M16 42H43C45.5 42 47.5 44 47.5 46.5V62C47.5 64.5 45.5 66.5 43 66.5H16C13.5 66.5 11.5 64.5 11.5 62V46.5C11.5 44 13.5 42 16 42Z" fill="url(#frameFront)" stroke="url(#edgeFront)" stroke-width="0.7" transform="rotate(3 29.5 54.25)"/>
+    <path d="M24.4 58C26.4 55.6 28.6 53.4 31 51.2C33.2 53 35.4 54.8 37.6 56.8" stroke="url(#brandMark)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31 63C33.2 61 35.3 58.8 37.6 56.8" stroke="url(#brandMark)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.94"/>
+    <path d="M24.4 58C26.4 55.6 28.6 53.4 31 51.2C33.2 53 35.4 54.8 37.6 56.8" stroke="url(#brandHighlight)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31 63C33.2 61 35.3 58.8 37.6 56.8" stroke="url(#brandHighlight)" stroke-width="0.65" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+  </g>
+
+  <text x="162" y="86" fill="#E5E7EB" font-size="18" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif" letter-spacing="2.4">BRAND STYLE GENERATOR</text>
+  <text x="162" y="121" fill="#8E96A8" font-size="18" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif">58 个品牌风格 · 一键复制提示词 · 实时联动预览</text>
+
+  <text x="72" y="236" fill="#F7F8FA" font-size="72" font-weight="700" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif">品牌风格生成器</text>
+  <text x="72" y="322" fill="#D8DDE6" font-size="52" font-weight="600" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif">一键复制 58 个大厂设计风格</text>
+  <text x="72" y="398" fill="#9CA3AF" font-size="28" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">搜索品牌即可联动预览，快速复制官网首页、仪表盘、登录页、设置页等页面提示词，</text>
+  <text x="72" y="436" fill="#9CA3AF" font-size="28" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">解决 AI 生成界面不高级、不像目标品牌的问题。</text>
+
+  <g>
+    <rect x="72" y="484" width="172" height="46" rx="23" fill="#0E1115" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <text x="107" y="514" fill="#F2F4F7" font-size="21" font-weight="600" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">58 个品牌</text>
+    <rect x="260" y="484" width="186" height="46" rx="23" fill="#0E1115" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <text x="296" y="514" fill="#F2F4F7" font-size="21" font-weight="600" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">即时联动预览</text>
+    <rect x="462" y="484" width="188" height="46" rx="23" fill="#0E1115" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <text x="498" y="514" fill="#F2F4F7" font-size="21" font-weight="600" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">提示词可直接复制</text>
+  </g>
+
+  <g>
+    <rect x="718" y="108" width="406" height="434" rx="34" fill="#0A0C10" stroke="url(#cardStroke)" stroke-width="2"/>
+    <rect x="742" y="132" width="358" height="78" rx="24" fill="#111419" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <text x="772" y="164" fill="#9CA3AF" font-size="18" letter-spacing="2.2" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif">CUSTOM SIGNATURE MARK</text>
+    <ellipse cx="882" cy="220" rx="58" ry="9" fill="white" fill-opacity="0.08"/>
+    <path d="M876 148H924C930 148 934 152 934 158V183C934 189 930 193 924 193H876C870 193 866 189 866 183V158C866 152 870 148 876 148Z" fill="url(#frameBack)" stroke="url(#edgeBack)" stroke-width="1.1" transform="rotate(5 900 170.5)"/>
+    <path d="M838 166H902C908 166 912 170 912 176V208C912 214 908 218 902 218H838C832 218 828 214 828 208V176C828 170 832 166 838 166Z" fill="url(#frameMid)" stroke="url(#edgeMid)" stroke-width="1.1" transform="rotate(-4 870 192)"/>
+    <path d="M806 186H880C886 186 890 190 890 196V236C890 242 886 246 880 246H806C800 246 796 242 796 236V196C796 190 800 186 806 186Z" fill="url(#frameFront)" stroke="url(#edgeFront)" stroke-width="1.1" transform="rotate(3 843 216)"/>
+    <path d="M829 225C834 219 840 214 847 208C853 213 859 217 865 223" stroke="url(#brandMark)" stroke-width="7.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M847 238C853 233 859 228 865 223" stroke="url(#brandMark)" stroke-width="6.3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.94"/>
+    <path d="M829 225C834 219 840 214 847 208C853 213 859 217 865 223" stroke="url(#brandHighlight)" stroke-width="2.05" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M847 238C853 233 859 228 865 223" stroke="url(#brandHighlight)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+
+    <rect x="742" y="240" width="358" height="116" rx="28" fill="#101318" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <text x="772" y="286" fill="#F7F8FA" font-size="30" font-weight="700" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif">原创温润品牌符号</text>
+    <text x="772" y="326" fill="#A1A8B4" font-size="22" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">把转折收圆、角度放缓，保留抽象识别感的同时让品牌气质更稳，</text>
+    <text x="772" y="356" fill="#A1A8B4" font-size="22" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">更像高级、耐看的正式品牌标志。</text>
+
+    <rect x="742" y="382" width="170" height="134" rx="24" fill="#101318" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <text x="770" y="418" fill="#7B8392" font-size="16" letter-spacing="1.8" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif">FEATURES</text>
+    <text x="770" y="454" fill="#F2F4F7" font-size="20" font-weight="600" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">Favicon</text>
+    <text x="770" y="484" fill="#F2F4F7" font-size="20" font-weight="600" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">OG 分享封面</text>
+    <text x="770" y="514" fill="#F2F4F7" font-size="20" font-weight="600" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">站点品牌图标</text>
+
+    <rect x="930" y="382" width="170" height="134" rx="24" fill="#101318" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <text x="958" y="418" fill="#7B8392" font-size="16" letter-spacing="1.8" font-family="SF Pro Display, PingFang SC, Helvetica Neue, Arial, sans-serif">URL</text>
+    <text x="958" y="455" fill="#F2F4F7" font-size="22" font-weight="700" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif">luyu743-web</text>
+    <text x="958" y="484" fill="#F2F4F7" font-size="22" font-weight="700" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif">.github.io</text>
+    <text x="958" y="513" fill="#9CA3AF" font-size="18" font-family="SF Pro Text, PingFang SC, Helvetica Neue, Arial, sans-serif">/design-style-picker</text>
+  </g>
+</svg>

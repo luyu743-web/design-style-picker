@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="surface" x1="36" y1="20" x2="214" y2="238" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#181A1F"/>
+      <stop offset="0.56" stop-color="#0B0D11"/>
+      <stop offset="1" stop-color="#040506"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="30" y1="18" x2="220" y2="238" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+    <radialGradient id="sheen" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(188 56) rotate(136.294) scale(92)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="shadow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(124 190) rotate(180) scale(72 11)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frameBack" x1="152" y1="90" x2="204" y2="138" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#AAB4C3"/>
+      <stop offset="1" stop-color="#616B7B"/>
+    </linearGradient>
+    <linearGradient id="frameMid" x1="108" y1="108" x2="176" y2="162" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E2E8F0"/>
+      <stop offset="1" stop-color="#B9C4D1"/>
+    </linearGradient>
+    <linearGradient id="frameFront" x1="78" y1="128" x2="156" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFD"/>
+      <stop offset="1" stop-color="#E0E6EF"/>
+    </linearGradient>
+    <linearGradient id="edgeBack" x1="149" y1="90" x2="207" y2="138" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="edgeMid" x1="106" y1="108" x2="179" y2="163" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="edgeFront" x1="76" y1="128" x2="158" y2="198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="brandMark" x1="98" y1="149" x2="136" y2="179" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BCC5D3"/>
+      <stop offset="1" stop-color="#7C8798"/>
+    </linearGradient>
+    <linearGradient id="brandHighlight" x1="100" y1="150" x2="130" y2="173" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="60" fill="#020304"/>
+  <rect x="10" y="10" width="236" height="236" rx="50" fill="url(#surface)" stroke="url(#stroke)" stroke-width="2"/>
+  <circle cx="188" cy="56" r="74" fill="url(#sheen)"/>
+  <ellipse cx="124" cy="190" rx="72" ry="11" fill="url(#shadow)"/>
+
+  <path d="M154 88H197C203 88 208 93 208 99V129C208 135 203 140 197 140H154C148 140 143 135 143 129V99C143 93 148 88 154 88Z" fill="url(#frameBack)" stroke="url(#edgeBack)" stroke-width="1.3" transform="rotate(5 175.5 114)"/>
+  <path d="M110 106H174C180 106 185 111 185 117V155C185 161 180 166 174 166H110C104 166 99 161 99 155V117C99 111 104 106 110 106Z" fill="url(#frameMid)" stroke="url(#edgeMid)" stroke-width="1.3" transform="rotate(-4 142 136)"/>
+  <path d="M78 128H154C160 128 165 133 165 139V187C165 193 160 198 154 198H78C72 198 67 193 67 187V139C67 133 72 128 78 128Z" fill="url(#frameFront)" stroke="url(#edgeFront)" stroke-width="1.3" transform="rotate(3 116 163)"/>
+
+  <path d="M97 163C102 157 107 152 113 147C118 151 123 155 129 160" stroke="url(#brandMark)" stroke-width="7.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M113 175C118 171 123 165 129 160" stroke="url(#brandMark)" stroke-width="6.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.94"/>
+  <path d="M97 163C102 157 107 152 113 147C118 151 123 155 129 160" stroke="url(#brandHighlight)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M113 175C118 171 123 165 129 160" stroke="url(#brandHighlight)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+</svg>

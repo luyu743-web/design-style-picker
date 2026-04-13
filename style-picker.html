@@ -1,0 +1,4281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="./assets/style-picker-mark.svg">
+  <link rel="shortcut icon" href="./assets/style-picker-mark.svg">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="application-name" content="品牌风格生成器">
+  <meta name="apple-mobile-web-app-title" content="品牌风格生成器">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>品牌风格生成器 · 一键复制 58 个大厂设计风格</title>
+  <meta name="description" content="品牌风格生成器：一键复制 58 个大厂设计风格。搜索品牌即可联动预览，并快速复制官网首页、仪表盘、登录页、设置页等页面提示词。">
+  <meta property="og:site_name" content="品牌风格生成器">
+  <meta property="og:title" content="品牌风格生成器 · 一键复制 58 个大厂设计风格">
+  <meta property="og:description" content="搜索品牌即可联动预览，并快速复制对应提示词，生成更像 Linear、Vercel、Stripe 这类大厂气质的界面。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://luyu743-web.github.io/design-style-picker/">
+  <meta property="og:image" content="https://luyu743-web.github.io/design-style-picker/assets/og-cover.png">
+  <meta property="og:image:secure_url" content="https://luyu743-web.github.io/design-style-picker/assets/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="品牌风格生成器分享封面：一键复制 58 个大厂设计风格">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="品牌风格生成器 · 一键复制 58 个大厂设计风格">
+  <meta name="twitter:description" content="搜索品牌即可联动预览，并快速复制对应提示词，生成更像 Linear、Vercel、Stripe 这类大厂气质的界面。">
+  <meta name="twitter:image" content="https://luyu743-web.github.io/design-style-picker/assets/og-cover.png">
+  <meta name="twitter:image:alt" content="品牌风格生成器分享封面：一键复制 58 个大厂设计风格">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Inter+Tight:wght@600;700;800&family=Noto+Sans+SC:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-strong: rgba(255, 255, 255, 0.07);
+      --text: #f5f5f5;
+      --text-secondary: rgba(255, 255, 255, 0.74);
+      --text-tertiary: rgba(255, 255, 255, 0.46);
+      --border: rgba(255, 255, 255, 0.10);
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --accent: #7c8cff;
+      --accent-soft: rgba(124, 140, 255, 0.14);
+      --success: #10b981;
+      --shadow: rgba(0, 0, 0, 0.32) 0px 16px 48px -24px, rgba(255,255,255,0.04) 0px 0px 0px 1px;
+      --panel-bg: linear-gradient(180deg, rgba(18, 18, 21, 0.92) 0%, rgba(10, 10, 12, 0.86) 100%);
+      --panel-surface: linear-gradient(180deg, rgba(255,255,255,0.036) 0%, rgba(255,255,255,0.018) 100%);
+      --panel-surface-strong: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.024) 100%);
+      --panel-border: rgba(255,255,255,0.08);
+      --panel-border-strong: rgba(255,255,255,0.12);
+      --panel-highlight: rgba(255,255,255,0.05);
+      --panel-shadow: rgba(0,0,0,0.45) 0px 22px 50px -34px, rgba(0,0,0,0.26) 0px 8px 20px -18px, inset 0 1px 0 rgba(255,255,255,0.05), inset 0 0 0 1px rgba(255,255,255,0.08);
+      --font-sans: "Geist", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+      --font-display: "Inter Tight", "Noto Sans SC", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+      --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --container: 1360px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(124,140,255,0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(16,185,129,0.08), transparent 20%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.5;
+      font-feature-settings: "liga" 1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a,
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      padding: 34px 0 36px;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 8% 6% 6% 56%;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,0.06), transparent 34%);
+      background-size: 48px 48px, 48px 48px, auto;
+      opacity: 0.24;
+      transform: perspective(1400px) rotateY(-20deg);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.92) 22%, rgba(0,0,0,0.92) 82%, transparent 100%);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: 4%;
+      width: 36%;
+      height: 220px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 56%),
+        radial-gradient(circle at 68% 40%, rgba(154,164,255,0.10), transparent 34%);
+      opacity: 0.52;
+      filter: blur(2px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-brand-lockup {
+      position: absolute;
+      top: 8px;
+      right: 0;
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      padding: 2px;
+      box-sizing: border-box;
+      border-radius: 18px;
+      border: 1px solid rgba(228, 234, 241, 0.2);
+      background:
+        linear-gradient(180deg, rgba(248, 250, 253, 0.022), rgba(248, 250, 253, 0.006)),
+        linear-gradient(180deg, rgba(15, 19, 25, 0.14), rgba(15, 19, 25, 0.05));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.075),
+        inset 0 -1px 0 rgba(92, 103, 121, 0.055),
+        0 0 0 1px rgba(88, 98, 116, 0.035),
+        0 10px 24px -28px rgba(110, 124, 146, 0.14);
+      isolation: isolate;
+    }
+
+    .hero-brand-mark {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 15px;
+      flex: 0 0 auto;
+      box-shadow: none;
+    }
+
+    .eyebrow {
+      color: rgba(255,255,255,0.48);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      margin: 0;
+      max-width: 1120px;
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 76px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      display: grid;
+      gap: 12px;
+      text-wrap: balance;
+    }
+
+    .hero-title-line {
+      display: block;
+    }
+
+    .hero-title-lead {
+      font-size: clamp(24px, 2.2vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .hero-title-accent {
+      display: inline-block;
+      padding-right: 0.04em;
+      font-family: "Inter Tight", "Geist", sans-serif;
+      font-weight: 800;
+      background: linear-gradient(180deg, #ffffff 0%, #d9def5 52%, #b4c0ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 24px rgba(124,140,255,0.12);
+    }
+
+    .hero-copy {
+      max-width: 860px;
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .hero-copy code {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: #eef2ff;
+      font-family: var(--font-mono);
+      font-size: 0.92em;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.024) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .meta-chip strong {
+      color: var(--text);
+      font-weight: 600;
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .button {
+      min-height: 40px;
+      padding: 0 15px;
+      border-radius: 12px;
+    }
+
+    .hero-actions .button-primary {
+      min-width: 208px;
+      justify-content: center;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      display: grid;
+      gap: 16px;
+      margin: 8px 0 0;
+      padding: 16px 18px 15px;
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, rgba(18, 18, 21, 0.92) 0%, rgba(10, 10, 12, 0.86) 100%);
+      box-shadow:
+        rgba(0,0,0,0.45) 0px 22px 50px -34px,
+        rgba(0,0,0,0.26) 0px 8px 20px -18px,
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      backdrop-filter: blur(22px) saturate(145%);
+      overflow: visible;
+    }
+
+    .toolbar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 38%);
+      opacity: 0.88;
+      pointer-events: none;
+    }
+
+    .toolbar-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-shell {
+      position: relative;
+      min-width: 0;
+      z-index: 32;
+    }
+
+    .search {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 0 16px;
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.018) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .search svg {
+      color: var(--text-tertiary);
+      flex: 0 0 auto;
+      transition: color 180ms ease;
+    }
+
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .search input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .search:focus-within {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.042) 0%, rgba(255,255,255,0.024) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(255,255,255,0.12),
+        0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .search.is-linked {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.036) 0%, rgba(255,255,255,0.022) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(255,255,255,0.11);
+    }
+
+    .search.is-linked svg {
+      color: #d8dcff;
+    }
+
+    .search-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      right: 0;
+      z-index: 120;
+      display: grid;
+      gap: 0;
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(16, 16, 19, 0.98) 0%, rgba(11, 11, 14, 0.96) 100%);
+      box-shadow:
+        rgba(0,0,0,0.5) 0px 28px 70px -34px,
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      backdrop-filter: blur(24px);
+      opacity: 0;
+      transform: translateY(-6px) scale(0.985);
+      pointer-events: none;
+      transition: opacity 160ms ease, transform 160ms ease;
+      overflow: hidden;
+    }
+
+    .search-panel.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .search-panel-head,
+    .search-panel-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      color: var(--text-tertiary);
+      font-size: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .search-panel-head {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .search-panel-foot {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .search-panel-list {
+      display: grid;
+      gap: 0;
+      max-height: 360px;
+      overflow: auto;
+      padding: 6px;
+    }
+
+    .search-result-item {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 12px 12px;
+      text-align: left;
+      transition: background 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+    }
+
+    .search-result-item:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .search-result-item.is-active {
+      background: rgba(124,140,255,0.16);
+      box-shadow: inset 0 0 0 1px rgba(124,140,255,0.22);
+      transform: translateY(-1px);
+    }
+
+    .search-result-main {
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .search-result-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .search-result-title strong {
+      min-width: 0;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-result-title span {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-result-meta {
+      color: var(--text-secondary);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-result-side {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-tertiary);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .search-kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-family: var(--font-mono);
+    }
+
+    .search-empty {
+      padding: 16px 14px 18px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .button,
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 160ms ease;
+    }
+
+    .button {
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.02) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.045),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      color: var(--text-secondary);
+    }
+
+    .button:hover,
+    .filter-chip:hover {
+      background: rgba(255,255,255,0.055);
+      color: var(--text);
+    }
+
+    .button-primary {
+      background:
+        linear-gradient(180deg, #fbfbfd 0%, #ececf1 100%);
+      color: #111216;
+      box-shadow:
+        0 10px 24px -18px rgba(255,255,255,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.95),
+        inset 0 0 0 1px rgba(17,18,22,0.06);
+    }
+
+    .button-primary:hover {
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f1f1f5 100%);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+      min-height: 33px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.028) 0%, rgba(255,255,255,0.016) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.075);
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    .filter-chip-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.72);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .filter-chip.is-active {
+      background: linear-gradient(180deg, rgba(82, 138, 255, 0.16) 0%, rgba(60, 112, 228, 0.10) 100%);
+      color: #dce7ff;
+      box-shadow:
+        0 14px 28px -24px rgba(72, 132, 255, 0.5),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 0 0 1px rgba(114, 164, 255, 0.24);
+    }
+
+    .filter-chip.is-active .filter-chip-count {
+      background: rgba(111, 162, 255, 0.16);
+      color: #e7efff;
+      box-shadow: inset 0 0 0 1px rgba(122, 172, 255, 0.18);
+    }
+
+    .summary {
+      padding: 16px 2px 10px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .summary strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .workspace-panel {
+      display: grid;
+      grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
+      gap: 16px;
+      margin: 8px 0 18px;
+      align-items: start;
+      scroll-margin-top: 20px;
+    }
+
+    .workspace-meta-panel,
+    .workspace-preview-panel {
+      min-width: 0;
+      border-radius: 20px;
+      background: var(--panel-bg);
+      box-shadow: var(--panel-shadow);
+      overflow: hidden;
+    }
+
+    .workspace-meta-panel {
+      display: grid;
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .workspace-label {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.32px;
+    }
+
+    .workspace-style {
+      display: grid;
+      gap: 8px;
+    }
+
+    .workspace-style-name {
+      font-family: var(--font-display);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+    }
+
+    .workspace-style-slug {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .workspace-style-copy {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .workspace-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mode-switch {
+      display: inline-grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 4px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .mode-button {
+      min-height: 36px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+
+    .mode-button.is-active {
+      background: linear-gradient(180deg, #fbfbfd 0%, #ececf1 100%);
+      color: #111216;
+      box-shadow:
+        0 10px 22px -18px rgba(255,255,255,0.34),
+        inset 0 1px 0 rgba(255,255,255,0.96),
+        inset 0 0 0 1px rgba(17,18,22,0.06);
+    }
+
+    .workspace-preview-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.015) 100%);
+    }
+
+    .workspace-preview-title {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .workspace-preview-title strong {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .workspace-preview-title span {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .workspace-preview-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+
+    .workspace-preview-actions .action-button {
+      width: auto;
+      flex: 0 0 auto;
+      padding: 0 14px;
+      white-space: nowrap;
+      overflow-wrap: normal;
+    }
+
+    .workspace-preview-actions .action-button-link {
+      gap: 4px;
+    }
+
+    .workspace-preview-actions .action-button-link-icon {
+      display: block;
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      opacity: 0.88;
+      transition: transform 160ms ease, opacity 160ms ease;
+    }
+
+    .workspace-preview-actions .action-button-link:hover .action-button-link-icon {
+      opacity: 1;
+      transform: translate(1.25px, -1.25px);
+    }
+
+    .preview-frame-wrap {
+      position: relative;
+      background: rgba(255,255,255,0.018);
+      padding: 14px;
+      display: grid;
+      gap: 14px;
+      --preview-accent: #7c8cff;
+      --preview-accent-soft: rgba(124,140,255,0.18);
+      --preview-accent-ring: rgba(124,140,255,0.30);
+    }
+
+    .preview-stage-bar {
+      display: grid;
+      gap: 12px;
+      padding: 13px;
+      border-radius: 14px;
+      background: var(--panel-surface);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .preview-stage-copy {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .preview-stage-copy strong {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 180ms ease;
+    }
+
+    .preview-stage-copy span {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      line-height: 1.45;
+      transition: color 180ms ease;
+    }
+
+    .preview-stage-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .preview-stage-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .preview-stage-tab {
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 0;
+      background: rgba(255,255,255,0.03);
+      color: var(--text-secondary);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.035),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, color 180ms ease;
+    }
+
+    .preview-stage-tab:hover {
+      background: rgba(255,255,255,0.055);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .preview-stage-tab:active {
+      transform: translateY(0);
+    }
+
+    .preview-stage-tab.is-active {
+      background: linear-gradient(180deg, rgba(82, 138, 255, 0.16) 0%, rgba(60, 112, 228, 0.10) 100%);
+      color: #dce7ff;
+      box-shadow:
+        0 14px 28px -24px rgba(72, 132, 255, 0.48),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 0 0 1px rgba(114, 164, 255, 0.24);
+    }
+
+    .preview-stage-tab:focus-visible {
+      outline: 2px solid var(--preview-accent);
+      outline-offset: 2px;
+    }
+
+    .preview-frame-shell {
+      position: relative;
+      min-width: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(14,14,16,0.96) 0%, rgba(10,10,12,0.9) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .preview-frame-shell::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), transparent 30%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+    }
+
+    .preview-browser-bar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.018) 100%);
+    }
+
+    .preview-browser-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+
+    .preview-browser-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.24);
+    }
+
+    .preview-browser-dots span:first-child {
+      background: rgba(255,255,255,0.34);
+    }
+
+    .preview-browser-address {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      flex: 1 1 auto;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, rgba(6,6,8,0.48) 0%, rgba(255,255,255,0.02) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.035),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.76);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .preview-browser-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--text-secondary);
+      font-size: 12px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      flex: 0 0 auto;
+    }
+
+    .preview-browser-status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--preview-accent);
+      box-shadow: 0 0 10px var(--preview-accent-soft);
+    }
+
+    .preview-frame {
+      display: block;
+      width: 100%;
+      height: 676px;
+      border: 0;
+      border-radius: 0 0 14px 14px;
+      background: #ffffff;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.06),
+        0 20px 44px -34px rgba(0,0,0,0.45);
+      transition: opacity 220ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1), filter 260ms ease;
+      transform-origin: top center;
+    }
+
+    .preview-frame-wrap::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 88px;
+      bottom: 12px;
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, var(--preview-accent-soft), transparent 42%),
+        rgba(10,10,10,0.04);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+    }
+
+    .preview-frame-wrap.is-transitioning::after {
+      opacity: 1;
+    }
+
+    .preview-frame-wrap.is-transitioning .preview-frame {
+      opacity: 0.56;
+      transform: translateY(10px) scale(0.988);
+      filter: saturate(0.94) blur(0.8px);
+    }
+
+    .preview-frame-wrap.is-transitioning .preview-frame-shell::before {
+      opacity: 1;
+    }
+
+    .preview-frame-wrap.is-transitioning .preview-stage-copy strong {
+      color: #ffffff;
+    }
+
+    .preview-frame-wrap.is-transitioning .preview-stage-copy span {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .preview-frame-wrap.is-transitioning .preview-stage-tab.is-active {
+      transform: translateY(-1px) scale(0.985);
+    }
+
+    .loading-line {
+      min-height: 22px;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    .workspace-generation {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--panel-surface);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .workspace-generation-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .workspace-prompt-preview {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(5,5,6,0.32) 0%, rgba(255,255,255,0.015) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.035),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.7;
+      word-break: break-word;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      display: grid;
+      gap: 20px;
+      min-height: 336px;
+      padding: 20px;
+      border-radius: 20px;
+      background: var(--panel-bg);
+      box-shadow:
+        rgba(0,0,0,0.38) 0px 18px 40px -30px,
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      overflow: hidden;
+      min-width: 0;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, var(--brand-glow, rgba(124,140,255,0.14)), transparent 28%);
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent 24%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        rgba(0,0,0,0.42) 0px 24px 54px -34px,
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(255,255,255,0.10);
+    }
+
+    .card.is-current {
+      box-shadow:
+        rgba(0,0,0,0.42) 0px 24px 54px -34px,
+        0 0 0 1px rgba(255,255,255,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.16);
+    }
+
+    .card.is-previewing {
+      box-shadow:
+        rgba(0,0,0,0.42) 0px 24px 54px -34px,
+        0 0 0 1px rgba(124,140,255,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.14);
+      transform: translateY(-1px);
+    }
+
+    .card-header,
+    .card-body,
+    .card-actions {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+    }
+
+    .card-header {
+      display: grid;
+      gap: 12px;
+    }
+
+    .brand-identity {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      overflow: visible;
+      background: none;
+      box-shadow: none;
+    }
+
+    .brand-logo-image {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+
+    .brand-logo-fallback {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: rgba(244,247,251,0.92);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-logo.is-fallback .brand-logo-image {
+      display: none;
+    }
+
+    .brand-logo.is-fallback .brand-logo-fallback {
+      display: inline-flex;
+    }
+
+    .brand-meta {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+      padding-top: 1px;
+    }
+
+    .card-topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .card-badges {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      flex: 0 0 auto;
+      min-width: 0;
+      margin-left: auto;
+    }
+
+    .category-chip {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 1 auto;
+      min-width: 0;
+      max-width: 100%;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.32px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.07);
+    }
+
+    .active-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(25, 171, 130, 0.30) 0%, rgba(18, 123, 103, 0.22) 100%);
+      color: #dffcf1;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      box-shadow:
+        0 18px 28px -24px rgba(18, 185, 129, 0.42),
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        inset 0 0 0 1px rgba(38, 211, 156, 0.12);
+    }
+
+    .preview-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(100, 118, 255, 0.28) 0%, rgba(86, 98, 222, 0.18) 100%);
+      color: #eef1ff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      box-shadow:
+        0 18px 28px -24px rgba(104, 118, 255, 0.44),
+        inset 0 1px 0 rgba(255,255,255,0.14),
+        inset 0 0 0 1px rgba(126, 141, 255, 0.14);
+    }
+
+    .preview-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8fa0ff;
+      box-shadow: 0 0 12px rgba(143, 160, 255, 0.7);
+    }
+
+    .active-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #1dd39a;
+      box-shadow: 0 0 12px rgba(29, 211, 154, 0.7);
+    }
+
+    .brand-name {
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -1.2px;
+      font-weight: 700;
+      min-width: 0;
+    }
+
+    .slug {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.1;
+    }
+
+    .card-recommend {
+      display: block;
+      margin: 0;
+    }
+
+    .card-scenes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .scene-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.024) 100%);
+      color: #eef1ff;
+      font-size: 12px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .card-body {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .mood {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+      min-width: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.024) 100%);
+      color: var(--text-secondary);
+      font-size: 12px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 0 0 1px rgba(255,255,255,0.07);
+    }
+
+    .card-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .card-actions .action-row .action-button-muted {
+      min-height: 36px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.014) 100%);
+      color: var(--text-tertiary);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.03),
+        inset 0 0 0 1px rgba(255,255,255,0.065);
+    }
+
+    .card-actions .action-row .action-button-muted:hover {
+      color: var(--text-secondary);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.045),
+        inset 0 0 0 1px rgba(255,255,255,0.085);
+    }
+
+    .card-actions > .action-button-primary {
+      min-height: 42px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      box-shadow:
+        0 16px 28px -20px rgba(255,255,255,0.42),
+        inset 0 1px 0 rgba(255,255,255,0.96),
+        inset 0 0 0 1px rgba(17,18,22,0.06);
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .action-row.is-single {
+      grid-template-columns: 1fr;
+    }
+
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 12px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.024) 100%);
+      color: var(--text);
+      text-decoration: none;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.045),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      font-size: 13px;
+      transition: 160ms ease;
+      cursor: pointer;
+      border: 0;
+      min-width: 0;
+      width: 100%;
+      text-align: center;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .action-button:hover {
+      background: rgba(255,255,255,0.07);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.055),
+        inset 0 0 0 1px rgba(255,255,255,0.10);
+    }
+
+    .action-button-primary {
+      background: linear-gradient(180deg, #fbfbfd 0%, #ececf1 100%);
+      color: #111216;
+      box-shadow:
+        0 12px 24px -18px rgba(255,255,255,0.36),
+        inset 0 1px 0 rgba(255,255,255,0.95),
+        inset 0 0 0 1px rgba(17,18,22,0.06);
+    }
+
+    .action-button-primary:hover {
+      background: linear-gradient(180deg, #ffffff 0%, #f2f2f6 100%);
+      box-shadow:
+        0 14px 26px -18px rgba(255,255,255,0.40),
+        inset 0 1px 0 rgba(255,255,255,0.98),
+        inset 0 0 0 1px rgba(17,18,22,0.06);
+    }
+
+    .action-button-muted {
+      background: linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.018) 100%);
+      color: var(--text-secondary);
+    }
+
+    .action-button-muted:hover {
+      color: var(--text);
+    }
+
+    .action-button.is-current {
+      cursor: default;
+      pointer-events: none;
+      background: linear-gradient(180deg, #fbfbfd 0%, #ececf1 100%);
+      color: #111216;
+      box-shadow:
+        0 12px 24px -18px rgba(255,255,255,0.36),
+        inset 0 1px 0 rgba(255,255,255,0.95),
+        inset 0 0 0 1px rgba(17,18,22,0.06);
+    }
+
+    .command {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 12px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(5,5,6,0.34) 0%, rgba(255,255,255,0.015) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.035),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .command-text {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .empty {
+      display: none;
+      padding: 40px 20px;
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: inset 0 0 0 1px var(--border-soft);
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .empty.is-visible {
+      display: block;
+    }
+
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      min-width: 220px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(17,17,17,0.92);
+      color: #ffffff;
+      box-shadow: rgba(0,0,0,0.35) 0px 16px 40px -20px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: 160ms ease;
+      pointer-events: none;
+      font-size: 13px;
+    }
+
+    .toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-brand-lockup {
+        position: static;
+        justify-self: end;
+        margin-bottom: 2px;
+      }
+
+      .hero::before {
+        inset: 12% 2% 4% 42%;
+        opacity: 0.18;
+      }
+
+      .hero::after {
+        top: 32px;
+        right: 2%;
+        width: 42%;
+        opacity: 0.34;
+      }
+
+      .toolbar-top {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .toolbar {
+        padding: 16px;
+        border-radius: 20px;
+      }
+
+      .grid,
+      .action-row,
+      .command {
+        grid-template-columns: 1fr;
+      }
+
+      .search-panel {
+        top: calc(100% + 8px);
+      }
+
+      .workspace-preview-actions {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .hero-actions .button,
+      .hero-actions .button-primary {
+        width: 100%;
+      }
+
+      .preview-stage-tab {
+        min-height: 36px;
+        padding: 0 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(calc(100% - 20px), var(--container));
+      }
+
+      .hero-title {
+        letter-spacing: -1.8px;
+      }
+
+      .hero::before,
+      .hero::after {
+        opacity: 0.18;
+        transform: none;
+      }
+
+      .hero::before {
+        inset: 16% 6% 0 28%;
+      }
+
+      .hero::after {
+        top: 54px;
+        right: 0;
+        width: 46%;
+        height: 128px;
+      }
+    }
+
+    @media (min-width: 981px) {
+      .hero-title-line {
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-brand-lockup" aria-label="品牌风格生成器正式品牌标识">
+        <img class="hero-brand-mark" src="./assets/style-picker-mark-display.svg?v=20260410-frame1px" alt="">
+      </div>
+      <div class="eyebrow">Brand Style Generator / 58 Curated Styles</div>
+      <h1 class="hero-title">
+        <span class="hero-title-line hero-title-lead">品牌风格生成器</span>
+        <span class="hero-title-line">一键复制 <span class="hero-title-accent">58</span> 个大厂设计风格</span>
+      </h1>
+      <div class="hero-copy">基于 GitHub 上的 <code>awesome-design-md</code> 精选整理，把 58 个品牌风格做成一个可搜索、可预览、可直接复制的在线灵感库。搜索品牌时，右侧预览会自动联动到最匹配风格；选中后即可一键复制对应页面提示词，快速生成更像 Linear、Vercel、Stripe 这类大厂气质的官网、仪表盘、登录页与后台界面。</div>
+      <div class="hero-actions">
+        <button class="button button-primary" id="copyPromptTemplate" type="button">复制官网首页万能提示词</button>
+        <a class="button" href="https://github.com/VoltAgent/awesome-design-md?tab=readme-ov-file" target="_blank" rel="noreferrer">查看风格来源</a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-chip"><strong id="totalCount">58</strong> 个品牌风格</div>
+        <div class="meta-chip">当前品牌: <strong id="activeStyleLabel">Vercel</strong></div>
+        <div class="meta-chip">站点模式: <strong id="workspaceContextLabel">在线分享</strong></div>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <div class="toolbar-top">
+        <div class="search-shell">
+          <label class="search">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="7.25" cy="7.25" r="4.75" stroke="currentColor" stroke-width="1.2"></circle>
+              <path d="M10.75 10.75L13.25 13.25" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+            <input id="searchInput" type="text" autocomplete="off" placeholder="搜索品牌风格、分类或关键词；↑↓ 选择，Enter 立即切换">
+          </label>
+          <div class="search-panel" id="searchPanel"></div>
+        </div>
+      </div>
+
+      <div class="filters" id="filters"></div>
+    </section>
+
+    <section class="summary">
+      当前筛出 <strong id="visibleCount">58</strong> / <strong id="allCount">58</strong> 个风格
+    </section>
+
+    <section class="workspace-panel">
+      <article class="workspace-meta-panel">
+        <div class="workspace-label">当前品牌</div>
+        <div class="workspace-style">
+          <div class="workspace-style-name" id="workspaceStyleName">Vercel</div>
+          <div class="workspace-style-slug" id="workspaceStyleSlug">风格代号 · vercel</div>
+        </div>
+        <div class="workspace-style-copy" id="workspaceStyleCopy">已锁定 Vercel 的品牌气质。切换品牌、页面类型或明暗模式时，右侧预览会即时联动，你可以随时复制当前提示词继续生成。</div>
+        <div class="workspace-chips" id="workspaceTags"></div>
+        <div class="mode-switch" id="modeSwitch">
+          <button class="mode-button" data-mode="light" type="button">浅色预览</button>
+          <button class="mode-button is-active" data-mode="dark" type="button">深色预览</button>
+        </div>
+        <div class="loading-line" id="loadingLine">在线分享模式：切换品牌、页面类型与明暗预览，右侧画布会即时联动。</div>
+        <div class="workspace-generation">
+          <div class="workspace-label">提示词生成器</div>
+          <div class="workspace-generation-meta">
+            <span class="tag" id="generationPageType">官网首页</span>
+            <span class="tag" id="generationOutputFile">vercel-landing.html</span>
+          </div>
+          <div class="workspace-prompt-preview" id="generationPromptPreview">用 vercel 风格做一个 官网首页，输出为 vercel-landing.html，并启动预览</div>
+        </div>
+        <div class="action-row" id="workspaceActionRow">
+          <button class="action-button" type="button" id="copyCurrentPrompt">复制当前风格提示词</button>
+          <button class="action-button" type="button" id="copyCurrentCommand">复制品牌代号</button>
+        </div>
+      </article>
+
+      <article class="workspace-preview-panel" id="workspacePreviewPanel">
+        <div class="workspace-preview-head">
+          <div class="workspace-preview-title">
+            <strong id="workspacePreviewTitle">品牌即时预览</strong>
+            <span id="workspacePreviewPath">Vercel / 官网首页 / 深色预览</span>
+          </div>
+          <div class="workspace-preview-actions">
+            <a class="action-button action-button-link" id="openCurrentPreview" href="#" target="_blank" rel="noreferrer"><span>打开预览页</span><svg class="action-button-link-icon" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.25 5H11V9.75" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            <a class="action-button action-button-link" id="openBrandSystemPreview" href="#" target="_blank" rel="noreferrer"><span>打开原始风格页</span><svg class="action-button-link-icon" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.25 5H11V9.75" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+            <a class="action-button action-button-link" id="openCurrentDesign" href="#" target="_blank" rel="noreferrer"><span>打开 DESIGN.MD</span><svg class="action-button-link-icon" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.25 5H11V9.75" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          </div>
+        </div>
+        <div class="preview-frame-wrap">
+          <div class="preview-stage-bar">
+            <div class="preview-stage-copy">
+              <strong>页面类型</strong>
+              <span>像切图一样直接切换页面场景，右侧画布会即时联动</span>
+            </div>
+            <div class="preview-stage-tabs" id="pageTypeTabs" role="tablist" aria-label="页面类型">
+              <button class="preview-stage-tab is-active" type="button" role="tab" aria-selected="true" data-page-value="官网首页|landing">官网首页</button>
+              <button class="preview-stage-tab" type="button" role="tab" aria-selected="false" data-page-value="仪表盘|dashboard">仪表盘</button>
+              <button class="preview-stage-tab" type="button" role="tab" aria-selected="false" data-page-value="登录页|login">登录页</button>
+              <button class="preview-stage-tab" type="button" role="tab" aria-selected="false" data-page-value="设置页|settings">设置页</button>
+              <button class="preview-stage-tab" type="button" role="tab" aria-selected="false" data-page-value="知识库页面|docs">知识库页面</button>
+              <button class="preview-stage-tab" type="button" role="tab" aria-selected="false" data-page-value="产品后台|admin">产品后台</button>
+            </div>
+          </div>
+          <div class="preview-frame-shell">
+            <div class="preview-browser-bar">
+              <div class="preview-browser-dots" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="preview-browser-address" id="previewBrowserAddress">your-public-site/vercel/landing</div>
+              <div class="preview-browser-status" id="previewBrowserStatus">Dark preview</div>
+            </div>
+            <iframe class="preview-frame" id="previewFrame" title="品牌风格实时预览"></iframe>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid" id="cardGrid"></section>
+    <section class="empty" id="emptyState">没有找到匹配风格。试试搜索品牌名、分类，或者输入如 `linear`、`vercel`、`dashboard`、`landing`。</section>
+  </main>
+
+  <div class="toast" id="toast">已复制</div>
+
+  <script>
+    let currentActiveStyle = "unknown";
+    const styles = [
+      { slug: "airbnb", name: "Airbnb", category: "Enterprise & Consumer", mood: "温暖珊瑚、圆角卡片、强摄影驱动的旅行产品语言。", tags: ["travel", "warm", "rounded"], glow: "rgba(255, 91, 79, 0.18)" },
+      { slug: "airtable", name: "Airtable", category: "Design & Productivity", mood: "彩色数据感、结构化信息布局、友好但不幼稚。", tags: ["grid", "data", "playful"], glow: "rgba(255, 181, 72, 0.18)" },
+      { slug: "apple", name: "Apple", category: "Enterprise & Consumer", mood: "高留白、极简白底、带电影感的大图与高级产品展示。", tags: ["minimal", "premium", "white"], glow: "rgba(255,255,255,0.16)" },
+      { slug: "bmw", name: "BMW", category: "Car Brands", mood: "深色高级感、精密工程气质、冷静豪华。", tags: ["luxury", "dark", "precision"], glow: "rgba(77, 161, 255, 0.16)" },
+      { slug: "cal", name: "Cal.com", category: "Design & Productivity", mood: "简洁中性、开发者友好、低噪音安排界面。", tags: ["scheduling", "clean", "neutral"], glow: "rgba(163,163,163,0.16)" },
+      { slug: "claude", name: "Claude", category: "AI & Machine Learning", mood: "温暖陶土色点缀、编辑感版式、节制而有人味。", tags: ["editorial", "warm", "ai"], glow: "rgba(214, 125, 86, 0.16)" },
+      { slug: "clay", name: "Clay", category: "Design & Productivity", mood: "柔和渐变、艺术指导气质、创意 agency 风格。", tags: ["organic", "gradient", "creative"], glow: "rgba(255, 178, 206, 0.18)" },
+      { slug: "clickhouse", name: "ClickHouse", category: "Infrastructure & Cloud", mood: "黄黑技术文档感、数据基础设施语气很强。", tags: ["database", "docs", "analytics"], glow: "rgba(255, 222, 89, 0.20)" },
+      { slug: "cohere", name: "Cohere", category: "AI & Machine Learning", mood: "企业 AI 平台气质、渐变和数据面板并重。", tags: ["enterprise", "gradient", "ai"], glow: "rgba(91, 127, 255, 0.18)" },
+      { slug: "coinbase", name: "Coinbase", category: "Fintech & Crypto", mood: "高信任蓝色体系、金融产品的机构感与干净秩序。", tags: ["finance", "blue", "trust"], glow: "rgba(10, 114, 239, 0.18)" },
+      { slug: "composio", name: "Composio", category: "Infrastructure & Cloud", mood: "现代深色平台感，彩色集成元素更活。", tags: ["integrations", "dark", "platform"], glow: "rgba(111, 114, 255, 0.18)" },
+      { slug: "cursor", name: "Cursor", category: "Developer Tools & Platforms", mood: "深色 IDE 质感、冷色渐变边缘、AI 编码工具氛围。", tags: ["editor", "dark", "coding"], glow: "rgba(112, 132, 255, 0.18)" },
+      { slug: "elevenlabs", name: "ElevenLabs", category: "AI & Machine Learning", mood: "电影感深色界面，音频与波形语义明显。", tags: ["audio", "cinematic", "dark"], glow: "rgba(124, 140, 255, 0.16)" },
+      { slug: "expo", name: "Expo", category: "Developer Tools & Platforms", mood: "深色、紧字距、代码和移动开发语气很强。", tags: ["mobile", "developer", "dark"], glow: "rgba(145, 145, 145, 0.16)" },
+      { slug: "ferrari", name: "Ferrari", category: "Car Brands", mood: "黑白编辑大片感，极少量红色建立强烈品牌性。", tags: ["editorial", "luxury", "dramatic"], glow: "rgba(255, 91, 79, 0.20)" },
+      { slug: "figma", name: "Figma", category: "Design & Productivity", mood: "鲜明多彩、专业但轻松、设计协作感很强。", tags: ["design", "playful", "multicolor"], glow: "rgba(123, 97, 255, 0.18)" },
+      { slug: "framer", name: "Framer", category: "Design & Productivity", mood: "黑蓝对比鲜明、运动感强、很适合营销站。", tags: ["motion", "marketing", "bold"], glow: "rgba(64, 124, 255, 0.20)" },
+      { slug: "hashicorp", name: "HashiCorp", category: "Infrastructure & Cloud", mood: "黑白企业基础设施气质，规整且可信。", tags: ["infra", "enterprise", "monochrome"], glow: "rgba(179, 179, 179, 0.16)" },
+      { slug: "ibm", name: "IBM", category: "Enterprise & Consumer", mood: "Carbon 体系风格，企业级结构清晰、蓝色克制。", tags: ["enterprise", "structured", "blue"], glow: "rgba(79, 141, 255, 0.16)" },
+      { slug: "intercom", name: "Intercom", category: "Design & Productivity", mood: "友好蓝系、客服与沟通产品常见的亲和感。", tags: ["support", "friendly", "blue"], glow: "rgba(90, 157, 255, 0.18)" },
+      { slug: "kraken", name: "Kraken", category: "Fintech & Crypto", mood: "紫色深色金融面板、交易与图表语义更重。", tags: ["crypto", "purple", "trading"], glow: "rgba(142, 110, 255, 0.18)" },
+      { slug: "lamborghini", name: "Lamborghini", category: "Car Brands", mood: "真黑背景、金色点缀、极强奢侈性能品牌感。", tags: ["luxury", "gold", "dark"], glow: "rgba(215, 180, 77, 0.18)" },
+      { slug: "linear.app", name: "Linear", category: "Developer Tools & Platforms", mood: "深色精密、细边框、高密度信息，非常适合仪表盘。", tags: ["precision", "dashboard", "dark"], glow: "rgba(113, 112, 255, 0.18)" },
+      { slug: "lovable", name: "Lovable", category: "Developer Tools & Platforms", mood: "友好渐变、轻快开发者产品感、偏现代 startup。", tags: ["gradient", "startup", "friendly"], glow: "rgba(255, 122, 194, 0.18)" },
+      { slug: "minimax", name: "Minimax", category: "AI & Machine Learning", mood: "深色霓虹点缀、模型产品感强、夜间界面氛围。", tags: ["neon", "ai", "dark"], glow: "rgba(122, 136, 255, 0.18)" },
+      { slug: "mintlify", name: "Mintlify", category: "Developer Tools & Platforms", mood: "文档阅读友好、绿色点缀、很适合文档站。", tags: ["docs", "green", "clean"], glow: "rgba(62, 194, 123, 0.18)" },
+      { slug: "miro", name: "Miro", category: "Design & Productivity", mood: "高亮黄品牌识别、协作白板产品感、轻快。", tags: ["collaboration", "yellow", "board"], glow: "rgba(255, 208, 64, 0.20)" },
+      { slug: "mistral.ai", name: "Mistral AI", category: "AI & Machine Learning", mood: "紫调极简、法式工程气质、克制但识别度高。", tags: ["purple", "minimal", "ai"], glow: "rgba(137, 118, 255, 0.18)" },
+      { slug: "mongodb", name: "MongoDB", category: "Infrastructure & Cloud", mood: "绿色品牌延展、文档与开发者平台混合气质。", tags: ["database", "green", "developer"], glow: "rgba(72, 184, 113, 0.18)" },
+      { slug: "notion", name: "Notion", category: "Design & Productivity", mood: "暖白极简、柔和 serif 标题、知识工作流气质。", tags: ["knowledge", "minimal", "warm"], glow: "rgba(220, 220, 220, 0.14)" },
+      { slug: "nvidia", name: "NVIDIA", category: "Enterprise & Consumer", mood: "绿黑能量感、硬核技术品牌、性能语气强。", tags: ["performance", "green", "tech"], glow: "rgba(126, 211, 33, 0.18)" },
+      { slug: "ollama", name: "Ollama", category: "AI & Machine Learning", mood: "终端式黑白单色，极简而偏命令行审美。", tags: ["terminal", "monochrome", "local-ai"], glow: "rgba(235, 235, 235, 0.16)" },
+      { slug: "opencode.ai", name: "OpenCode AI", category: "AI & Machine Learning", mood: "深色开发者平台感，代码与 AI 场景结合明显。", tags: ["coding", "ai", "dark"], glow: "rgba(114, 122, 255, 0.18)" },
+      { slug: "pinterest", name: "Pinterest", category: "Design & Productivity", mood: "红色品牌锚点、瀑布流视觉语言、内容发现感。", tags: ["content", "grid", "red"], glow: "rgba(230, 71, 89, 0.18)" },
+      { slug: "posthog", name: "PostHog", category: "Developer Tools & Platforms", mood: "偏深色、开发者友好、带品牌个性的分析产品感。", tags: ["analytics", "developer", "dark"], glow: "rgba(255, 157, 66, 0.18)" },
+      { slug: "raycast", name: "Raycast", category: "Developer Tools & Platforms", mood: "深色 chrome、渐变强调、命令启动器气质。", tags: ["launcher", "dark", "gradient"], glow: "rgba(108, 117, 255, 0.18)" },
+      { slug: "renault", name: "Renault", category: "Car Brands", mood: "极光渐变、现代欧洲汽车视觉、零圆角更锐利。", tags: ["automotive", "gradient", "sharp"], glow: "rgba(255, 203, 76, 0.18)" },
+      { slug: "replicate", name: "Replicate", category: "AI & Machine Learning", mood: "白底代码平台感、模型 API 产品界面很清晰。", tags: ["api", "clean", "ai"], glow: "rgba(112, 132, 255, 0.14)" },
+      { slug: "resend", name: "Resend", category: "Developer Tools & Platforms", mood: "极简深色、带 monospace 细节，非常适合开发者营销页。", tags: ["email", "developer", "minimal"], glow: "rgba(189, 189, 189, 0.14)" },
+      { slug: "revolut", name: "Revolut", category: "Fintech & Crypto", mood: "深色卡片和渐变金融体验，现代 fintech 氛围浓。", tags: ["fintech", "cards", "dark"], glow: "rgba(104, 118, 255, 0.18)" },
+      { slug: "runwayml", name: "RunwayML", category: "AI & Machine Learning", mood: "媒体与视频产品感、电影式深色界面、内容很强。", tags: ["video", "media", "cinematic"], glow: "rgba(121, 133, 255, 0.18)" },
+      { slug: "sanity", name: "Sanity", category: "Infrastructure & Cloud", mood: "红色点缀、内容平台感、编辑系统语气清楚。", tags: ["cms", "content", "editorial"], glow: "rgba(255, 91, 79, 0.16)" },
+      { slug: "sentry", name: "Sentry", category: "Developer Tools & Platforms", mood: "深色监控后台、紫粉点缀、数据密度高。", tags: ["monitoring", "observability", "dark"], glow: "rgba(160, 94, 255, 0.18)" },
+      { slug: "spacex", name: "SpaceX", category: "Enterprise & Consumer", mood: "黑白极简、全幅视觉、未来科技和空间感很强。", tags: ["futuristic", "editorial", "black-white"], glow: "rgba(235, 235, 235, 0.16)" },
+      { slug: "spotify", name: "Spotify", category: "Enterprise & Consumer", mood: "深色 + 鲜绿强品牌、娱乐内容界面张力大。", tags: ["music", "green", "media"], glow: "rgba(40, 213, 97, 0.18)" },
+      { slug: "stripe", name: "Stripe", category: "Infrastructure & Cloud", mood: "优雅紫色渐变、支付基础设施的高级营销语言。", tags: ["payments", "gradient", "premium"], glow: "rgba(118, 100, 255, 0.18)" },
+      { slug: "supabase", name: "Supabase", category: "Developer Tools & Platforms", mood: "深色 emerald 开发平台感，数据库和开发者气氛兼具。", tags: ["database", "green", "dark"], glow: "rgba(62, 194, 123, 0.18)" },
+      { slug: "superhuman", name: "Superhuman", category: "Developer Tools & Platforms", mood: "高级深色邮件产品，键盘效率感和微光效果明显。", tags: ["email", "premium", "dark"], glow: "rgba(147, 109, 255, 0.18)" },
+      { slug: "tesla", name: "Tesla", category: "Car Brands", mood: "极度克制、大片式产品摄影、未来消费科技品牌感。", tags: ["cinematic", "minimal", "automotive"], glow: "rgba(255, 91, 79, 0.14)" },
+      { slug: "together.ai", name: "Together AI", category: "AI & Machine Learning", mood: "蓝图式技术感、基础设施导向、偏工程视觉。", tags: ["infra", "blueprint", "ai"], glow: "rgba(71, 128, 255, 0.16)" },
+      { slug: "uber", name: "Uber", category: "Enterprise & Consumer", mood: "高对比黑白、城市和出行平台的果断语气。", tags: ["mobility", "urban", "bold"], glow: "rgba(255,255,255,0.12)" },
+      { slug: "vercel", name: "Vercel", category: "Developer Tools & Platforms", mood: "白底极简、Geist 强负字距、现代 developer marketing 标准。", tags: ["minimal", "developer", "marketing"], glow: "rgba(255,255,255,0.12)" },
+      { slug: "voltagent", name: "VoltAgent", category: "AI & Machine Learning", mood: "黑底翠绿点缀、终端式 AI agent 框架视觉。", tags: ["agent", "terminal", "emerald"], glow: "rgba(16, 185, 129, 0.18)" },
+      { slug: "warp", name: "Warp", category: "Developer Tools & Platforms", mood: "深色终端 IDE 混合感，块状命令视觉特征明显。", tags: ["terminal", "dark", "blocks"], glow: "rgba(120, 117, 255, 0.18)" },
+      { slug: "webflow", name: "Webflow", category: "Design & Productivity", mood: "蓝色营销站感、成熟 SaaS 官网结构、商业气息强。", tags: ["website", "blue", "marketing"], glow: "rgba(68, 113, 255, 0.18)" },
+      { slug: "wise", name: "Wise", category: "Fintech & Crypto", mood: "亮绿色品牌、清晰友好的金融产品感。", tags: ["finance", "green", "friendly"], glow: "rgba(43, 203, 121, 0.18)" },
+      { slug: "x.ai", name: "xAI", category: "AI & Machine Learning", mood: "冷峻黑白未来感，极简但锋利。", tags: ["minimal", "future", "ai"], glow: "rgba(215, 215, 215, 0.14)" },
+      { slug: "zapier", name: "Zapier", category: "Developer Tools & Platforms", mood: "暖橙品牌、自动化产品感、轻松且商业导向。", tags: ["automation", "orange", "friendly"], glow: "rgba(255, 150, 68, 0.18)" }
+    ];
+
+    const brandLogoDomains = {
+      airbnb: "airbnb.com",
+      airtable: "airtable.com",
+      apple: "apple.com",
+      bmw: "bmw.com",
+      cal: "cal.com",
+      claude: "claude.ai",
+      clay: "clay.com",
+      clickhouse: "clickhouse.com",
+      cohere: "cohere.com",
+      coinbase: "coinbase.com",
+      composio: "composio.dev",
+      cursor: "cursor.com",
+      elevenlabs: "elevenlabs.io",
+      expo: "expo.dev",
+      ferrari: "ferrari.com",
+      figma: "figma.com",
+      framer: "framer.com",
+      hashicorp: "hashicorp.com",
+      ibm: "ibm.com",
+      intercom: "intercom.com",
+      kraken: "kraken.com",
+      lamborghini: "lamborghini.com",
+      "linear.app": "linear.app",
+      lovable: "lovable.dev",
+      minimax: "minimax.io",
+      mintlify: "mintlify.com",
+      miro: "miro.com",
+      "mistral.ai": "mistral.ai",
+      mongodb: "mongodb.com",
+      notion: "notion.so",
+      nvidia: "nvidia.com",
+      ollama: "ollama.com",
+      "opencode.ai": "opencode.ai",
+      pinterest: "pinterest.com",
+      posthog: "posthog.com",
+      raycast: "raycast.com",
+      renault: "renault.com",
+      replicate: "replicate.com",
+      resend: "resend.com",
+      revolut: "revolut.com",
+      runwayml: "runwayml.com",
+      sanity: "sanity.io",
+      sentry: "sentry.io",
+      spacex: "spacex.com",
+      spotify: "spotify.com",
+      stripe: "stripe.com",
+      supabase: "supabase.com",
+      superhuman: "superhuman.com",
+      tesla: "tesla.com",
+      "together.ai": "together.ai",
+      uber: "uber.com",
+      vercel: "vercel.com",
+      voltagent: "voltagent.dev",
+      warp: "warp.dev",
+      webflow: "webflow.com",
+      wise: "wise.com",
+      "x.ai": "x.ai",
+      zapier: "zapier.com"
+    };
+
+    const filters = [
+      "All",
+      "AI & Machine Learning",
+      "Developer Tools & Platforms",
+      "Infrastructure & Cloud",
+      "Design & Productivity",
+      "Fintech & Crypto",
+      "Enterprise & Consumer",
+      "Car Brands"
+    ];
+
+    const pageTypes = [
+      { label: "官网首页", slug: "landing", value: "官网首页|landing" },
+      { label: "仪表盘", slug: "dashboard", value: "仪表盘|dashboard" },
+      { label: "登录页", slug: "login", value: "登录页|login" },
+      { label: "设置页", slug: "settings", value: "设置页|settings" },
+      { label: "知识库页面", slug: "docs", value: "知识库页面|docs" },
+      { label: "产品后台", slug: "admin", value: "产品后台|admin" }
+    ];
+    const defaultPageTypeValue = pageTypes[0].value;
+
+    const searchInput = document.getElementById("searchInput");
+    const searchPanel = document.getElementById("searchPanel");
+    const searchBox = document.querySelector(".search");
+    const filtersEl = document.getElementById("filters");
+    const cardGrid = document.getElementById("cardGrid");
+    const visibleCountEl = document.getElementById("visibleCount");
+    const allCountEl = document.getElementById("allCount");
+    const totalCountEl = document.getElementById("totalCount");
+    const emptyState = document.getElementById("emptyState");
+    const toastEl = document.getElementById("toast");
+    const activeStyleLabel = document.getElementById("activeStyleLabel");
+    const pageTypeTabs = document.getElementById("pageTypeTabs");
+    const workspaceStyleName = document.getElementById("workspaceStyleName");
+    const workspaceStyleSlug = document.getElementById("workspaceStyleSlug");
+    const workspaceStyleCopy = document.getElementById("workspaceStyleCopy");
+    const workspaceTags = document.getElementById("workspaceTags");
+    const modeSwitch = document.getElementById("modeSwitch");
+    const loadingLine = document.getElementById("loadingLine");
+    const workspaceContextLabel = document.getElementById("workspaceContextLabel");
+    const toolbarSection = document.querySelector(".toolbar");
+    const workspacePanel = document.querySelector(".workspace-panel");
+    const previewFrame = document.getElementById("previewFrame");
+    const previewFrameWrap = document.querySelector(".preview-frame-wrap");
+    const workspacePreviewPanel = document.getElementById("workspacePreviewPanel");
+    const workspacePreviewTitle = document.getElementById("workspacePreviewTitle");
+    const workspacePreviewPath = document.getElementById("workspacePreviewPath");
+    const openCurrentPreview = document.getElementById("openCurrentPreview");
+    const openBrandSystemPreview = document.getElementById("openBrandSystemPreview");
+    const openCurrentDesign = document.getElementById("openCurrentDesign");
+    const previewBrowserAddress = document.getElementById("previewBrowserAddress");
+    const previewBrowserStatus = document.getElementById("previewBrowserStatus");
+    const copyCurrentPrompt = document.getElementById("copyCurrentPrompt");
+    const copyCurrentCommand = document.getElementById("copyCurrentCommand");
+    const generationPageType = document.getElementById("generationPageType");
+    const generationOutputFile = document.getElementById("generationOutputFile");
+    const generationPromptPreview = document.getElementById("generationPromptPreview");
+    const copyPromptTemplateButton = document.getElementById("copyPromptTemplate");
+    const workspaceActionRow = document.getElementById("workspaceActionRow");
+
+    const workspaceApiPreference = new URLSearchParams(window.location.search).get("workspace");
+    const workspaceApiEnabled = (() => {
+      if (workspaceApiPreference === "local") return true;
+      if (workspaceApiPreference === "demo") return false;
+      const isLocalHost = ["127.0.0.1", "localhost"].includes(window.location.hostname);
+      return isLocalHost && (window.location.port === "8080" || window.location.port === "");
+    })();
+
+    let currentFilter = "All";
+    let previewMode = "dark";
+    let previewStyleSlug = "vercel";
+    let previewControlSource = "active";
+    let workspaceMode = "detecting";
+    let currentPageTypeValue = defaultPageTypeValue;
+    let currentPreviewBlobUrl = null;
+    let previewTransitionTimer = null;
+    let previewTransitionToken = 0;
+    let searchSuggestions = [];
+    let searchHighlightIndex = -1;
+    let isSearchFocused = false;
+
+    const AWESOME_DESIGN_REPO = "https://github.com/VoltAgent/awesome-design-md";
+
+    function sourceStyleFolder(style) {
+      return `${AWESOME_DESIGN_REPO}/tree/main/design-md/${style.slug}`;
+    }
+
+    function localLightPreview(style) {
+      return sourceStyleFolder(style);
+    }
+
+    function localDarkPreview(style) {
+      return sourceStyleFolder(style);
+    }
+
+    function localDesignDoc(style) {
+      return `${AWESOME_DESIGN_REPO}/blob/main/design-md/${style.slug}/DESIGN.md`;
+    }
+
+    function currentShareHost() {
+      const { host, pathname } = window.location;
+      const normalizedPath = pathname.replace(/\/[^/]*$/, "/").replace(/^\/+/, "");
+      return normalizedPath ? `${host}/${normalizedPath}` : host;
+    }
+
+    function syncShareMeta() {
+      const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+      if (ogUrlMeta) {
+        ogUrlMeta.setAttribute("content", window.location.href);
+      }
+    }
+
+    function useCommand(style) {
+      return `./design-md-workspace use ${style.slug}`;
+    }
+
+    function isLocalWorkspaceMode() {
+      return workspaceMode === "local";
+    }
+
+    function secondaryActionLabel() {
+      return isLocalWorkspaceMode() ? "复制切换命令" : "复制品牌代号";
+    }
+
+    function secondaryActionPayload(style) {
+      return isLocalWorkspaceMode() ? useCommand(style) : style.slug;
+    }
+
+    function secondaryActionToast(style) {
+      return isLocalWorkspaceMode()
+        ? `已复制本地切换命令：${style.name}`
+        : `已复制品牌代号：${style.slug}`;
+    }
+
+    function getStyleNarrative(style, pageLabel) {
+      return `已锁定 ${style.name} 的品牌语言：${style.mood} 适合继续生成 ${pageLabel}、仪表盘与后台等更有大厂感的界面。`;
+    }
+
+    function getPreviewDescriptor(style, pageLabel) {
+      return `${style.name} / ${pageLabel} / ${previewMode === "light" ? "浅色预览" : "深色预览"}`;
+    }
+
+    function setActiveStyleBadge(slug) {
+      const style = styleBySlug(slug);
+      activeStyleLabel.textContent = style ? style.name : slug;
+    }
+
+    function sanitizeSlug(value) {
+      return value.replace(/\./g, "-");
+    }
+
+    function setWorkspaceMode(mode) {
+      workspaceMode = mode;
+      if (workspaceContextLabel) {
+        workspaceContextLabel.textContent = mode === "local" ? "本地联动" : "在线分享";
+      }
+    }
+
+    function activateStyleLocally(style, options = {}) {
+      const { message = "" } = options;
+      currentActiveStyle = style.slug;
+      previewStyleSlug = style.slug;
+      previewControlSource = "active";
+      setActiveStyleBadge(currentActiveStyle);
+      if (message) {
+        loadingLine.textContent = message;
+      }
+      renderWorkspacePanel();
+      renderCards();
+    }
+
+    function normalizeSearchValue(value) {
+      return String(value).toLowerCase().replace(/[\s._-]+/g, "");
+    }
+
+    function getPageTypeByValue(value) {
+      return pageTypes.find((pageType) => pageType.value === value) || pageTypes[0];
+    }
+
+    function getCurrentPageType() {
+      return getPageTypeByValue(currentPageTypeValue);
+    }
+
+    function getBuilderState(style) {
+      const { label: pageLabel, slug: pageSlug } = getCurrentPageType();
+      const outputFileName = `${sanitizeSlug(style.slug)}-${pageSlug}.html`;
+      return { pageLabel, pageSlug, outputFileName };
+    }
+
+    function getFilterCount(filter) {
+      if (filter === "All") {
+        return styles.length;
+      }
+      return styles.filter((style) => style.category === filter).length;
+    }
+
+    function getStyleScenes(style) {
+      const tokens = `${style.slug} ${style.name} ${style.category} ${style.mood} ${style.tags.join(" ")}`.toLowerCase();
+      const scenes = [];
+      const pushScene = (label, condition = true) => {
+        if (condition && !scenes.includes(label)) {
+          scenes.push(label);
+        }
+      };
+
+      pushScene("官网首页", /marketing|website|travel|luxury|brand|consumer|creative|editorial|launch|landing/.test(tokens) || style.category === "Car Brands");
+      pushScene("仪表盘", /dashboard|data|analytics|trading|developer|infra|platform|terminal|database|enterprise|finance|editor/.test(tokens));
+      pushScene("知识库页面", /docs|database|developer|infra|mintlify|clickhouse|hashicorp|documentation/.test(tokens));
+      pushScene("产品后台", /platform|admin|enterprise|integrations|automation|support|collaboration|agent|ai/.test(tokens));
+      pushScene("登录页", /trust|finance|security|support|ai|friendly|clean/.test(tokens));
+      pushScene("设置页", /scheduling|support|productivity|developer|collaboration|workflow/.test(tokens));
+
+      pageTypes.forEach((pageType) => {
+        pushScene(pageType.label, scenes.length < 3);
+      });
+      return scenes.slice(0, 3);
+    }
+
+    function aiPrompt(style) {
+      const { pageLabel, outputFileName } = getBuilderState(style);
+      return `用 ${style.slug} 风格做一个 ${pageLabel}，输出为 ${outputFileName}，并启动预览`;
+    }
+
+    function tokenizeSearchValue(value) {
+      return String(value)
+        .toLowerCase()
+        .split(/[^a-z0-9\u4e00-\u9fa5]+/g)
+        .map(normalizeSearchValue)
+        .filter(Boolean);
+    }
+
+    function getFieldSearchScore(value, query, options = {}) {
+      const normalizedQuery = normalizeSearchValue(query);
+      const normalizedValue = normalizeSearchValue(value);
+      if (!normalizedQuery || !normalizedValue) {
+        return 0;
+      }
+
+      const {
+        exactScore = 0,
+        prefixScore = 0,
+        tokenPrefixScore = prefixScore,
+        containsScore = 0,
+        containsPenalty = 6
+      } = options;
+
+      let bestScore = 0;
+
+      if (normalizedValue === normalizedQuery) {
+        bestScore = Math.max(bestScore, exactScore);
+      }
+
+      if (normalizedValue.startsWith(normalizedQuery)) {
+        bestScore = Math.max(bestScore, prefixScore - Math.max(0, normalizedValue.length - normalizedQuery.length));
+      }
+
+      tokenizeSearchValue(value).forEach((token, index) => {
+        if (!token) return;
+        if (token === normalizedQuery) {
+          bestScore = Math.max(bestScore, exactScore - index * 2);
+        }
+        if (token.startsWith(normalizedQuery)) {
+          bestScore = Math.max(
+            bestScore,
+            tokenPrefixScore - Math.max(0, token.length - normalizedQuery.length) - index * 2
+          );
+        }
+      });
+
+      if (containsScore > 0) {
+        const index = normalizedValue.indexOf(normalizedQuery);
+        if (index >= 0) {
+          bestScore = Math.max(bestScore, containsScore - index * containsPenalty);
+        }
+      }
+
+      return Math.max(bestScore, 0);
+    }
+
+    function getBrandMatchScore(style, query) {
+      return Math.max(
+        getFieldSearchScore(style.slug, query, {
+          exactScore: 280,
+          prefixScore: 244,
+          tokenPrefixScore: 244,
+          containsScore: 188,
+          containsPenalty: 8
+        }),
+        getFieldSearchScore(style.name, query, {
+          exactScore: 272,
+          prefixScore: 236,
+          tokenPrefixScore: 244,
+          containsScore: 182,
+          containsPenalty: 7
+        }),
+        0
+      );
+    }
+
+    function getStyleSearchRank(style, query) {
+      const normalizedQuery = normalizeSearchValue(query);
+      if (!normalizedQuery) {
+        return 0;
+      }
+
+      const brandScore = getBrandMatchScore(style, normalizedQuery);
+      if (brandScore > 0) {
+        return 1000 + brandScore;
+      }
+
+      if (normalizedQuery.length < 2) {
+        return 0;
+      }
+
+      let score = 0;
+      style.tags.forEach((tag) => {
+        score = Math.max(score, getFieldSearchScore(tag, normalizedQuery, {
+          exactScore: 248,
+          prefixScore: 210,
+          tokenPrefixScore: 218
+        }));
+      });
+      score = Math.max(score, getFieldSearchScore(style.category, normalizedQuery, {
+        exactScore: 320,
+        prefixScore: 286,
+        tokenPrefixScore: 292,
+        containsScore: 228,
+        containsPenalty: 10
+      }));
+      score = Math.max(score, getFieldSearchScore(style.mood, normalizedQuery, {
+        exactScore: 180,
+        prefixScore: 142,
+        tokenPrefixScore: 154,
+        containsScore: 96,
+        containsPenalty: 12
+      }));
+      return score;
+    }
+
+    function getSearchSuggestions(visibleStyles) {
+      const query = searchInput.value.trim();
+      if (!query) {
+        return [];
+      }
+      return visibleStyles.slice(0, 6);
+    }
+
+    function syncSearchHighlightWithinBounds() {
+      if (!searchSuggestions.length) {
+        searchHighlightIndex = -1;
+        return;
+      }
+      if (searchHighlightIndex < 0 || searchHighlightIndex >= searchSuggestions.length) {
+        searchHighlightIndex = 0;
+      }
+    }
+
+    function getHighlightedSearchStyle() {
+      syncSearchHighlightWithinBounds();
+      return searchSuggestions[searchHighlightIndex] || null;
+    }
+
+    function renderSearchPanel() {
+      const query = searchInput.value.trim();
+      const hasQuery = Boolean(query);
+      const isVisible = hasQuery && isSearchFocused;
+      searchPanel.classList.toggle("is-visible", isVisible);
+      searchBox.classList.toggle("is-linked", hasQuery && searchSuggestions.length > 0);
+
+      if (!isVisible) {
+        searchPanel.innerHTML = "";
+        return;
+      }
+
+      if (!searchSuggestions.length) {
+        searchPanel.innerHTML = `
+          <div class="search-panel-head">
+            <span>品牌搜索</span>
+            <span>没有匹配结果</span>
+          </div>
+          <div class="search-empty">试试输入更完整的品牌名，或者先切回 <strong>All</strong> 再搜索。</div>
+          <div class="search-panel-foot">
+            <span>Esc 清空</span>
+            <span>当前筛选会参与搜索</span>
+          </div>
+        `;
+        return;
+      }
+
+      searchPanel.innerHTML = `
+        <div class="search-panel-head">
+          <span>品牌搜索</span>
+          <span>${searchSuggestions.length} 个候选</span>
+        </div>
+        <div class="search-panel-list">
+          ${searchSuggestions.map((style, index) => `
+            <button class="search-result-item ${index === searchHighlightIndex ? "is-active" : ""}" type="button" data-search-slug="${style.slug}">
+              <span class="search-result-main">
+                <span class="search-result-title">
+                  <strong>${style.name}</strong>
+                  <span>${style.slug}</span>
+                </span>
+                <span class="search-result-meta">${style.category}</span>
+              </span>
+              <span class="search-result-side">
+                ${index === searchHighlightIndex ? '<span class="search-kbd">Enter</span>' : ""}
+              </span>
+            </button>
+          `).join("")}
+        </div>
+        <div class="search-panel-foot">
+          <span>↑↓ 选择 · Enter 一键切换</span>
+          <span>Esc 清空</span>
+        </div>
+      `;
+
+      searchPanel.querySelectorAll("[data-search-slug]").forEach((button, index) => {
+        button.addEventListener("mousedown", (event) => {
+          event.preventDefault();
+        });
+        button.addEventListener("mouseenter", () => {
+          searchHighlightIndex = index;
+          const style = searchSuggestions[index];
+          if (style) {
+            previewStyleSlug = style.slug;
+            previewControlSource = "search";
+            loadingLine.textContent = `已根据搜索定位到 ${style.name}，右侧预览已联动。`;
+            renderWorkspacePanel();
+            renderCards();
+            renderSearchPanel();
+          }
+        });
+        button.addEventListener("click", () => {
+          const style = styleBySlug(button.dataset.searchSlug);
+          if (style) {
+            commitSearchSelection(style);
+          }
+        });
+      });
+    }
+
+    function clearSearchState(options = {}) {
+      const { preservePreview = false } = options;
+      const hadQuery = Boolean(searchInput.value.trim());
+      searchInput.value = "";
+      searchSuggestions = [];
+      searchHighlightIndex = -1;
+      searchPanel.innerHTML = "";
+      searchPanel.classList.remove("is-visible");
+      searchBox.classList.remove("is-linked");
+
+      if (!preservePreview && previewControlSource === "search") {
+        const style = styleBySlug(currentActiveStyle) || styles[0];
+        if (style) {
+          previewStyleSlug = style.slug;
+          previewControlSource = "active";
+          if (hadQuery) {
+            loadingLine.textContent = `没有匹配品牌，已恢复到 ${style.name} 当前预览。`;
+            renderWorkspacePanel();
+          }
+        }
+      }
+    }
+
+    async function commitSearchSelection(style) {
+      if (!style) return;
+
+      if (style.slug === currentActiveStyle) {
+        previewStyleSlug = style.slug;
+        previewControlSource = "active";
+        clearSearchState({ preservePreview: true });
+        renderWorkspacePanel();
+        renderCards();
+        showToast(`当前已经是 ${style.name}`);
+        searchInput.blur();
+        return;
+      }
+
+      await switchStyle(style);
+      clearSearchState({ preservePreview: true });
+      renderCards();
+      renderSearchPanel();
+      searchInput.blur();
+    }
+
+    function styleBySlug(slug) {
+      return styles.find((item) => item.slug === slug);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function getBrandLogoDomain(style) {
+      return brandLogoDomains[style.slug] || "";
+    }
+
+    function getBrandLogoSources(style) {
+      const domain = getBrandLogoDomain(style);
+      if (!domain) return [];
+      return [
+        `https://www.google.com/s2/favicons?sz=128&domain_url=${encodeURIComponent(`https://${domain}`)}`,
+        `https://icons.duckduckgo.com/ip3/${encodeURIComponent(domain)}.ico`
+      ];
+    }
+
+    function getBrandLogoPrimary(style) {
+      return getBrandLogoSources(style)[0] || "";
+    }
+
+    function getBrandLogoSecondary(style) {
+      return getBrandLogoSources(style)[1] || "";
+    }
+
+    function getBrandLogoFallback(style) {
+      const cleaned = style.name.replace(/[^A-Za-z0-9]+/g, " ").trim();
+      const tokens = cleaned.split(/\s+/).filter(Boolean);
+      if (!tokens.length) {
+        return style.slug.slice(0, 2).toUpperCase();
+      }
+      if (tokens.length === 1) {
+        return tokens[0].slice(0, 2).toUpperCase();
+      }
+      return `${tokens[0][0] || ""}${tokens[1][0] || ""}`.toUpperCase();
+    }
+
+    function bindBrandLogoFallbacks(scope = cardGrid) {
+      scope.querySelectorAll(".brand-logo-image").forEach((image) => {
+        const onError = () => {
+          const fallbackSrc = image.dataset.fallbackSrc;
+          const fallbackTried = image.dataset.fallbackTried === "true";
+          if (fallbackSrc && !fallbackTried && image.src !== fallbackSrc) {
+            image.dataset.fallbackTried = "true";
+            image.src = fallbackSrc;
+            return;
+          }
+          image.closest(".brand-logo")?.classList.add("is-fallback");
+        };
+
+        image.addEventListener("error", onError);
+
+        if (image.complete && image.naturalWidth === 0) {
+          onError();
+        }
+      });
+    }
+
+    function parseGlowColor(glow) {
+      const match = glow.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+      if (!match) return null;
+      return { r: Number(match[1]), g: Number(match[2]), b: Number(match[3]) };
+    }
+
+    function accentFromCategory(style) {
+      const map = {
+        "AI & Machine Learning": "#7c8cff",
+        "Developer Tools & Platforms": "#6b7cff",
+        "Infrastructure & Cloud": "#4c8dff",
+        "Design & Productivity": "#ff69c3",
+        "Fintech & Crypto": "#22c55e",
+        "Enterprise & Consumer": "#8f8f8f",
+        "Car Brands": "#ffb224"
+      };
+      return map[style.category] || "#7c8cff";
+    }
+
+    function rgbToHex({ r, g, b }) {
+      return `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("")}`;
+    }
+
+    function hexToRgb(hex) {
+      const value = hex.replace("#", "");
+      const normalized = value.length === 3
+        ? value.split("").map((char) => char + char).join("")
+        : value;
+      return {
+        r: Number.parseInt(normalized.slice(0, 2), 16),
+        g: Number.parseInt(normalized.slice(2, 4), 16),
+        b: Number.parseInt(normalized.slice(4, 6), 16)
+      };
+    }
+
+    function rgba(hex, alpha) {
+      const { r, g, b } = hexToRgb(hex);
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    function getContrastTextColor(hex) {
+      const { r, g, b } = hexToRgb(hex);
+      const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+      return yiq >= 164 ? "#111111" : "#ffffff";
+    }
+
+    function getAccentColor(style) {
+      const glow = parseGlowColor(style.glow);
+      if (!glow) {
+        return accentFromCategory(style);
+      }
+      const max = Math.max(glow.r, glow.g, glow.b);
+      const min = Math.min(glow.r, glow.g, glow.b);
+      const delta = max - min;
+      const isAlmostWhite = glow.r > 215 && glow.g > 215 && glow.b > 215;
+      if (isAlmostWhite || delta < 24) {
+        return accentFromCategory(style);
+      }
+      return rgbToHex(glow);
+    }
+
+    function formatPreviewTag(tag) {
+      return String(tag)
+        .split(/[-_\s]+/)
+        .filter(Boolean)
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(" ");
+    }
+
+    function getRelatedBrandNames(style) {
+      const related = styles
+        .filter((item) => item.category === style.category && item.slug !== style.slug)
+        .map((item) => item.name);
+      const fallback = styles
+        .filter((item) => item.slug !== style.slug)
+        .map((item) => item.name);
+      return [...new Set([...related, ...fallback])].slice(0, 6);
+    }
+
+    function getPreviewArchetype(style) {
+      if (style.category === "Car Brands") return "automotive";
+      if (style.category === "Fintech & Crypto") return "fintech";
+      if (style.category === "AI & Machine Learning") return "ai";
+      if (style.category === "Infrastructure & Cloud") return "infra";
+      if (style.category === "Design & Productivity") return "design";
+      if (style.category === "Developer Tools & Platforms") return "developer";
+      return "enterprise";
+    }
+
+    function getPreviewProfile(style) {
+      const archetype = getPreviewArchetype(style);
+      const proof = [...new Set([
+        ...style.tags.slice(0, 3).map(formatPreviewTag),
+        style.category.replaceAll(" & ", " / ")
+      ])].slice(0, 4);
+      const base = {
+        archetype,
+        taste: "品牌气质",
+        featureLead: formatPreviewTag(style.tags[0] || "brand"),
+        brandSuffix: "Studio",
+        subline: "让品牌语气延展到每一种页面类型。",
+        landingNav: ["产品", "案例", "资源", "价格"],
+        primaryAction: "立即体验",
+        secondaryAction: "查看方案",
+        heroFocus: "品牌气质、信息层级与转化路径",
+        proof: proof.length ? proof : ["品牌识别", "信息层级", "快速生成", "多页面"],
+        snapshotLabel: "品牌快照",
+        snapshotValue: "Live",
+        snapshotStats: [
+          { label: "视觉识别", value: "强" },
+          { label: "层级组织", value: "清晰" },
+          { label: "提示词", value: "已就绪" },
+          { label: "场景切换", value: "6 类" }
+        ],
+        partners: getRelatedBrandNames(style),
+        faqAnswer: `会。切换到 ${style.name} 后，页面结构和内容语气都会一起变化。`,
+        dashboardNav: ["总览", "项目", "分析", "设置"],
+        dashboardTitle: "工作台",
+        dashboardAction: "新建项目",
+        dashboardStats: [
+          { label: "活跃页面", value: "24", caption: "当前版本" },
+          { label: "转化提升", value: "12%", caption: "本周" },
+          { label: "回访用户", value: "18.2k", caption: "最近 7 天" },
+          { label: "任务完成", value: "97%", caption: "本日" }
+        ],
+        dashboardActivity: [
+          { title: "首页结构已更新", time: "2 分钟前" },
+          { title: "品牌标签已同步", time: "8 分钟前" },
+          { title: "提示词模板已复制", time: "17 分钟前" },
+          { title: "视觉节奏已校准", time: "32 分钟前" }
+        ],
+        loginTitle: "欢迎回来",
+        loginPrimary: "继续登录",
+        loginSecondary: "使用工作邮箱登录",
+        loginBenefits: [
+          "品牌气质会同步映射到登录体验",
+          "切换页面类型时结构会一起变化",
+          "复制提示词后可继续生成真实页面"
+        ],
+        settingsNav: ["资料", "工作区", "通知", "账单", "安全"],
+        settingsTitle: "工作区资料",
+        settingsFields: ["Workspace name", "Company URL", "Support email"],
+        settingToggles: [
+          { label: "开启每周摘要", enabled: true },
+          { label: "发布前需要确认", enabled: true },
+          { label: "允许访客预览", enabled: false }
+        ],
+        docsNav: ["开始使用", "设计 Token", "组件", "模式", "示例"],
+        docsTitle: `Designing with ${style.name}`,
+        docsFocus: "品牌规则、组件约束与页面模式",
+        docsCommand: `pnpm run preview:${sanitizeSlug(style.slug)}`,
+        docsBullets: [
+          "统一品牌语言与组件表达",
+          "不同页面类型即时切换预览",
+          "提示词可继续扩展成真实 HTML"
+        ],
+        adminTitle: "管理后台",
+        adminAction: "新建规则",
+        adminStats: [
+          { label: "请求数", value: "82k", caption: "近 24 小时" },
+          { label: "异常数", value: "14", caption: "待处理" },
+          { label: "用户数", value: "2.1k", caption: "活跃" },
+          { label: "策略数", value: "36", caption: "已启用" }
+        ],
+        adminEvents: [
+          { title: "发布工作流", status: "成功", owner: "AK" },
+          { title: "同步规则", status: "处理中", owner: "LN" },
+          { title: "归档策略", status: "成功", owner: "SY" },
+          { title: "新增成员", status: "审核中", owner: "ZW" }
+        ]
+      };
+
+      if (archetype === "ai") {
+        return {
+          ...base,
+          taste: "AI 产品气质",
+          featureLead: "模型能力",
+          brandSuffix: "Lab",
+          subline: "把模型能力、场景案例和可信转化讲清楚。",
+          landingNav: ["能力", "场景", "安全", "价格"],
+          primaryAction: "预约演示",
+          secondaryAction: "查看能力",
+          heroFocus: "模型能力、应用场景与可信转化",
+          snapshotValue: "Inference ready",
+          snapshotStats: [
+            { label: "在线模型", value: "12" },
+            { label: "成功率", value: "98.7%" },
+            { label: "平均延迟", value: "0.8s" },
+            { label: "工作流", value: "34" }
+          ],
+          dashboardNav: ["总览", "模型", "运行", "用量"],
+          dashboardTitle: "AI 工作台",
+          dashboardAction: "创建工作流",
+          dashboardStats: [
+            { label: "推理次数", value: "14.2k", caption: "今日" },
+            { label: "成功率", value: "98.7%", caption: "最近 7 天" },
+            { label: "平均延迟", value: "0.8s", caption: "线上" },
+            { label: "活跃应用", value: "36", caption: "本月" }
+          ],
+          dashboardActivity: [
+            { title: "模型版本已发布", time: "2 分钟前" },
+            { title: "评测集已更新", time: "7 分钟前" },
+            { title: "工作流触发成功", time: "14 分钟前" },
+            { title: "知识库已同步", time: "28 分钟前" }
+          ],
+          loginTitle: "登录你的 AI 工作台",
+          loginSecondary: "使用企业邮箱登录",
+          loginBenefits: [
+            "更突出模型能力与应用场景",
+            "支持继续扩展到后台和文档",
+            "保留 AI 产品常见的可信感与节奏"
+          ],
+          settingsNav: ["资料", "模型", "权限", "账单", "安全"],
+          docsNav: ["快速开始", "模型能力", "提示词", "接入方式", "示例"],
+          docsFocus: "模型说明、接入方式与落地案例",
+          docsCommand: `pnpm run agent:${sanitizeSlug(style.slug)}`,
+          docsBullets: [
+            "模型能力与使用边界更清晰",
+            "Prompt、API、工作流统一管理",
+            "页面结构更适合 AI 产品表达"
+          ],
+          adminTitle: "模型运营后台",
+          adminAction: "新建策略",
+          adminStats: [
+            { label: "请求数", value: "1.8M", caption: "本周" },
+            { label: "失败率", value: "0.6%", caption: "最近 24 小时" },
+            { label: "活跃租户", value: "428", caption: "企业" },
+            { label: "策略数", value: "18", caption: "已生效" }
+          ],
+          adminEvents: [
+            { title: "模型路由已切换", status: "成功", owner: "ML" },
+            { title: "安全策略升级", status: "处理中", owner: "QY" },
+            { title: "评测报告归档", status: "成功", owner: "RS" },
+            { title: "租户权限调整", status: "审核中", owner: "TN" }
+          ]
+        };
+      }
+
+      if (archetype === "developer") {
+        return {
+          ...base,
+          taste: "开发者产品语言",
+          featureLead: "开发者语气",
+          brandSuffix: "Workspace",
+          subline: "保留更强的工具感、信息密度和结构秩序。",
+          landingNav: ["产品", "模板", "集成", "价格"],
+          primaryAction: "查看文档",
+          secondaryAction: "复制提示词",
+          heroFocus: "工具感、结构秩序与快速上手",
+          snapshotValue: "Tooling aligned",
+          snapshotStats: [
+            { label: "组件模块", value: "28" },
+            { label: "快捷操作", value: "16" },
+            { label: "暗色模式", value: "已启用" },
+            { label: "信息密度", value: "高" }
+          ],
+          dashboardNav: ["总览", "项目", "构建", "更新"],
+          dashboardTitle: "产品工作台",
+          dashboardAction: "新建项目",
+          dashboardStats: [
+            { label: "活跃项目", value: "128", caption: "本周" },
+            { label: "构建成功率", value: "99.4%", caption: "最近 7 天" },
+            { label: "提交量", value: "6.8k", caption: "30 天" },
+            { label: "平均响应", value: "142ms", caption: "线上" }
+          ],
+          dashboardActivity: [
+            { title: "组件库已发布", time: "3 分钟前" },
+            { title: "新版本已上线", time: "9 分钟前" },
+            { title: "构建流程已通过", time: "16 分钟前" },
+            { title: "提示词模板已更新", time: "24 分钟前" }
+          ],
+          loginTitle: "继续进入控制台",
+          loginSecondary: "使用 GitHub 登录",
+          loginBenefits: [
+            "更像开发者工具的层级和节奏",
+            "保留高信息密度与清晰操作感",
+            "适合继续生成仪表盘和后台"
+          ],
+          settingsNav: ["资料", "项目", "通知", "账单", "安全"],
+          docsNav: ["快速开始", "CLI", "组件", "扩展", "示例"],
+          docsFocus: "命令流、组件约束与开发者交互",
+          docsCommand: `pnpm run dev:${sanitizeSlug(style.slug)}`,
+          docsBullets: [
+            "更像开发者工具的文档结构",
+            "CLI 与界面表达保持同一套语气",
+            "继续生成后台和设置页更自然"
+          ],
+          adminTitle: "项目管理后台",
+          adminAction: "新建令牌",
+          adminStats: [
+            { label: "请求数", value: "420k", caption: "近 24 小时" },
+            { label: "告警数", value: "9", caption: "待处理" },
+            { label: "成员数", value: "312", caption: "活跃" },
+            { label: "令牌数", value: "46", caption: "有效" }
+          ],
+          adminEvents: [
+            { title: "访问令牌已创建", status: "成功", owner: "HL" },
+            { title: "工作区权限调整", status: "处理中", owner: "JT" },
+            { title: "项目模板更新", status: "成功", owner: "MK" },
+            { title: "日志级别切换", status: "审核中", owner: "PX" }
+          ]
+        };
+      }
+
+      if (archetype === "infra") {
+        return {
+          ...base,
+          taste: "基础设施表达",
+          featureLead: "稳定感",
+          brandSuffix: "Console",
+          subline: "突出可靠、可观测和平台能力。",
+          landingNav: ["平台", "架构", "文档", "价格"],
+          primaryAction: "启动工作区",
+          secondaryAction: "查看架构",
+          heroFocus: "平台能力、可靠性与清晰文档",
+          snapshotValue: "Ops ready",
+          snapshotStats: [
+            { label: "集群数", value: "24" },
+            { label: "可用性", value: "99.99%" },
+            { label: "平均延迟", value: "96ms" },
+            { label: "区域", value: "8" }
+          ],
+          dashboardNav: ["总览", "集群", "流量", "告警"],
+          dashboardTitle: "平台总览",
+          dashboardAction: "新建集群",
+          dashboardStats: [
+            { label: "请求数", value: "82M", caption: "本周" },
+            { label: "错误率", value: "0.08%", caption: "最近 24 小时" },
+            { label: "平均延迟", value: "96ms", caption: "全球" },
+            { label: "在线服务", value: "214", caption: "运行中" }
+          ],
+          dashboardActivity: [
+            { title: "边缘节点已扩容", time: "4 分钟前" },
+            { title: "监控阈值已调整", time: "11 分钟前" },
+            { title: "区域路由已更新", time: "18 分钟前" },
+            { title: "审计日志已同步", time: "33 分钟前" }
+          ],
+          loginTitle: "进入平台控制台",
+          loginSecondary: "使用 SSO 登录",
+          loginBenefits: [
+            "更适合基础设施产品的稳定表达",
+            "可观测、可靠性与文档气质更明显",
+            "切到后台或文档也保留平台感"
+          ],
+          settingsNav: ["资料", "集群", "告警", "账单", "安全"],
+          docsNav: ["开始使用", "架构", "部署", "监控", "示例"],
+          docsFocus: "平台架构、部署方式与监控规范",
+          docsCommand: `pnpm run infra:${sanitizeSlug(style.slug)}`,
+          docsBullets: [
+            "文档结构更偏平台与基础设施场景",
+            "部署、监控、告警的表达更统一",
+            "更适合继续生成控制台与后台页面"
+          ],
+          adminTitle: "平台管理后台",
+          adminAction: "创建策略",
+          adminStats: [
+            { label: "策略数", value: "64", caption: "已生效" },
+            { label: "告警数", value: "7", caption: "处理中" },
+            { label: "租户数", value: "186", caption: "企业" },
+            { label: "节点数", value: "92", caption: "在线" }
+          ],
+          adminEvents: [
+            { title: "网络策略已更新", status: "成功", owner: "WX" },
+            { title: "配额规则待审核", status: "审核中", owner: "BM" },
+            { title: "审计报表已导出", status: "成功", owner: "CR" },
+            { title: "节点维护已预约", status: "处理中", owner: "DV" }
+          ]
+        };
+      }
+
+      if (archetype === "design") {
+        return {
+          ...base,
+          taste: "设计协作气质",
+          featureLead: "创意协作",
+          brandSuffix: "Studio",
+          subline: "更强调版式、协作和视觉友好度。",
+          landingNav: ["产品", "模板", "案例", "价格"],
+          primaryAction: "开始体验",
+          secondaryAction: "查看案例",
+          heroFocus: "协作效率、视觉节奏与内容表达",
+          snapshotValue: "Design ready",
+          snapshotStats: [
+            { label: "项目数", value: "96" },
+            { label: "协作者", value: "42" },
+            { label: "采纳率", value: "87%" },
+            { label: "品牌板", value: "12" }
+          ],
+          dashboardNav: ["总览", "项目", "评审", "资源"],
+          dashboardTitle: "设计工作台",
+          dashboardAction: "新建设计稿",
+          dashboardStats: [
+            { label: "进行中项目", value: "42", caption: "本周" },
+            { label: "评审通过率", value: "86%", caption: "最近 7 天" },
+            { label: "活跃协作者", value: "128", caption: "团队" },
+            { label: "组件采纳率", value: "91%", caption: "本月" }
+          ],
+          dashboardActivity: [
+            { title: "品牌板已更新", time: "3 分钟前" },
+            { title: "新模板已发布", time: "10 分钟前" },
+            { title: "设计评审已通过", time: "19 分钟前" },
+            { title: "共享样式已同步", time: "34 分钟前" }
+          ],
+          loginTitle: "进入你的创作空间",
+          loginSecondary: "使用 Google 登录",
+          loginBenefits: [
+            "更适合设计工具和协作产品的节奏",
+            "版式与内容关系更清楚",
+            "切换不同页面类型时视觉语言更统一"
+          ],
+          settingsNav: ["资料", "团队", "通知", "品牌", "账单"],
+          docsNav: ["快速开始", "颜色", "组件", "版式", "示例"],
+          docsFocus: "颜色、组件与版式系统",
+          docsCommand: `pnpm run design:${sanitizeSlug(style.slug)}`,
+          docsBullets: [
+            "更适合设计工具的文档表达",
+            "颜色、版式、组件关系更清楚",
+            "延展到后台和设置页也更自然"
+          ],
+          adminTitle: "内容与资产后台",
+          adminAction: "新建资产集",
+          adminStats: [
+            { label: "资产数", value: "1.2k", caption: "可用" },
+            { label: "待审核", value: "18", caption: "今日" },
+            { label: "成员数", value: "74", caption: "活跃" },
+            { label: "品牌板", value: "12", caption: "已发布" }
+          ],
+          adminEvents: [
+            { title: "视觉资产已归档", status: "成功", owner: "AD" },
+            { title: "品牌模板待审核", status: "审核中", owner: "BE" },
+            { title: "组件封面已更新", status: "成功", owner: "CF" },
+            { title: "案例页已同步", status: "处理中", owner: "DG" }
+          ]
+        };
+      }
+
+      if (archetype === "fintech") {
+        return {
+          ...base,
+          taste: "金融信任感",
+          featureLead: "信任表达",
+          brandSuffix: "Capital",
+          subline: "更强调可信、清晰和数据决策。",
+          landingNav: ["产品", "安全", "增长", "价格"],
+          primaryAction: "申请试用",
+          secondaryAction: "查看方案",
+          heroFocus: "可信感、转化路径与关键数据",
+          snapshotValue: "Trust aligned",
+          snapshotStats: [
+            { label: "审批率", value: "91%" },
+            { label: "风控事件", value: "12" },
+            { label: "日交易额", value: "¥2.4M" },
+            { label: "转化率", value: "18%" }
+          ],
+          dashboardNav: ["总览", "交易", "风险", "客户"],
+          dashboardTitle: "业务总览",
+          dashboardAction: "创建活动",
+          dashboardStats: [
+            { label: "日交易额", value: "¥2.4M", caption: "今日" },
+            { label: "转化率", value: "18%", caption: "最近 7 天" },
+            { label: "审批率", value: "91%", caption: "本月" },
+            { label: "风险事件", value: "12", caption: "待处理" }
+          ],
+          dashboardActivity: [
+            { title: "风险规则已更新", time: "5 分钟前" },
+            { title: "账户审核已通过", time: "12 分钟前" },
+            { title: "增长实验已上线", time: "21 分钟前" },
+            { title: "账单对账已完成", time: "39 分钟前" }
+          ],
+          loginTitle: "安全登录你的账户",
+          loginSecondary: "使用验证码登录",
+          loginBenefits: [
+            "更强调金融产品的可信和秩序",
+            "适合继续生成交易与账户后台",
+            "关键数字和风控状态更易读"
+          ],
+          settingsNav: ["资料", "账户", "通知", "风控", "安全"],
+          docsNav: ["开始使用", "账户体系", "风控", "组件", "示例"],
+          docsFocus: "账户体系、风控规则与业务组件",
+          docsCommand: `pnpm run finance:${sanitizeSlug(style.slug)}`,
+          docsBullets: [
+            "更像金融产品的账户与风控说明",
+            "关键数字、流程和安全边界更清晰",
+            "延展到后台也保留可信表达"
+          ],
+          adminTitle: "风控与运营后台",
+          adminAction: "新建规则",
+          adminStats: [
+            { label: "审核中", value: "24", caption: "账户" },
+            { label: "异常事件", value: "8", caption: "待处理" },
+            { label: "客户数", value: "9.2k", caption: "活跃" },
+            { label: "规则数", value: "56", caption: "已启用" }
+          ],
+          adminEvents: [
+            { title: "交易规则已调整", status: "成功", owner: "FN" },
+            { title: "提现审核处理中", status: "处理中", owner: "GT" },
+            { title: "风险模型已归档", status: "成功", owner: "HU" },
+            { title: "账户标签待审核", status: "审核中", owner: "IV" }
+          ]
+        };
+      }
+
+      if (archetype === "automotive") {
+        return {
+          ...base,
+          taste: "品牌故事张力",
+          featureLead: "品牌叙事",
+          brandSuffix: "Drive",
+          subline: "保留更强的品牌视觉张力和沉浸感。",
+          landingNav: ["车型", "体验", "故事", "预约"],
+          primaryAction: "预约体验",
+          secondaryAction: "查看车型",
+          heroFocus: "品牌叙事、沉浸视觉与转化引导",
+          snapshotValue: "Launch ready",
+          snapshotStats: [
+            { label: "预约试驾", value: "248" },
+            { label: "门店咨询", value: "68" },
+            { label: "活动转化", value: "14%" },
+            { label: "品牌资产", value: "32" }
+          ],
+          dashboardNav: ["总览", "车型", "活动", "预约"],
+          dashboardTitle: "品牌体验台",
+          dashboardAction: "创建活动",
+          dashboardStats: [
+            { label: "预约数", value: "248", caption: "本周" },
+            { label: "到店率", value: "38%", caption: "最近 7 天" },
+            { label: "咨询线索", value: "682", caption: "本月" },
+            { label: "活动转化", value: "14%", caption: "线上" }
+          ],
+          dashboardActivity: [
+            { title: "新车型页面已上线", time: "6 分钟前" },
+            { title: "试驾预约已同步", time: "13 分钟前" },
+            { title: "门店物料已更新", time: "27 分钟前" },
+            { title: "品牌活动已发布", time: "45 分钟前" }
+          ],
+          loginTitle: "进入专属体验空间",
+          loginSecondary: "使用预约信息登录",
+          loginBenefits: [
+            "更保留品牌叙事与高端视觉氛围",
+            "适合继续生成官网与活动页",
+            "切换后台时也保留品牌张力"
+          ],
+          settingsNav: ["资料", "偏好", "通知", "预约", "隐私"],
+          docsNav: ["品牌故事", "视觉语言", "页面结构", "资产", "示例"],
+          docsFocus: "品牌叙事、视觉语言与页面结构",
+          docsCommand: `pnpm run studio:${sanitizeSlug(style.slug)}`,
+          docsBullets: [
+            "更适合品牌和高端产品的表达",
+            "页面节奏、留白与内容关系更协调",
+            "延展到活动页和预约页也更自然"
+          ],
+          adminTitle: "品牌运营后台",
+          adminAction: "新建活动",
+          adminStats: [
+            { label: "线索数", value: "1.4k", caption: "本月" },
+            { label: "待跟进", value: "26", caption: "门店" },
+            { label: "活动数", value: "12", caption: "进行中" },
+            { label: "素材数", value: "96", caption: "可用" }
+          ],
+          adminEvents: [
+            { title: "活动页面已发布", status: "成功", owner: "JA" },
+            { title: "门店排期处理中", status: "处理中", owner: "KB" },
+            { title: "品牌物料已归档", status: "成功", owner: "LC" },
+            { title: "试驾名单待确认", status: "审核中", owner: "MD" }
+          ]
+        };
+      }
+
+      return {
+        ...base,
+        taste: "企业级秩序感",
+        featureLead: "信息秩序",
+        brandSuffix: "Platform",
+        subline: "兼顾可信表达、结构清晰与多场景延展。",
+        landingNav: ["产品", "方案", "案例", "价格"],
+        primaryAction: "立即体验",
+        secondaryAction: "查看案例",
+        heroFocus: "可信表达、结构清晰与多场景延展",
+        snapshotValue: "System ready",
+        snapshotStats: [
+          { label: "模块数", value: "18" },
+          { label: "活跃团队", value: "36" },
+          { label: "多页面", value: "6 类" },
+          { label: "提示词", value: "可复制" }
+        ],
+        dashboardNav: ["总览", "客户", "产品", "分析"],
+        dashboardTitle: "业务总览",
+        dashboardAction: "创建页面",
+        dashboardStats: [
+          { label: "新增用户", value: "6.2k", caption: "本周" },
+          { label: "转化率", value: "16%", caption: "最近 7 天" },
+          { label: "留存率", value: "72%", caption: "30 天" },
+          { label: "任务数", value: "94", caption: "今日" }
+        ],
+        dashboardActivity: [
+          { title: "首页内容已更新", time: "4 分钟前" },
+          { title: "客户分组已同步", time: "11 分钟前" },
+          { title: "产品矩阵已校准", time: "18 分钟前" },
+          { title: "转化看板已刷新", time: "31 分钟前" }
+        ],
+        loginTitle: "继续进入工作区",
+        loginSecondary: "使用企业账号登录",
+        loginBenefits: [
+          "更像成熟企业产品的结构组织",
+          "品牌表达与业务信息更平衡",
+          "适合继续延展到后台与知识库"
+        ],
+        settingsNav: ["资料", "团队", "通知", "账单", "安全"],
+        docsNav: ["开始使用", "产品结构", "组件", "规范", "示例"],
+        docsFocus: "产品结构、组件规范与场景模式",
+        docsCommand: `pnpm run system:${sanitizeSlug(style.slug)}`,
+        docsBullets: [
+          "企业产品常见的信息层级更清楚",
+          "组件规范与页面结构保持一致",
+          "继续生成后台与登录页也更协调"
+        ],
+        adminTitle: "业务管理后台",
+        adminAction: "新建流程",
+        adminStats: [
+          { label: "任务数", value: "94", caption: "今日" },
+          { label: "异常数", value: "6", caption: "待处理" },
+          { label: "团队数", value: "18", caption: "活跃" },
+          { label: "流程数", value: "42", caption: "启用中" }
+        ],
+        adminEvents: [
+          { title: "业务流程已更新", status: "成功", owner: "NE" },
+          { title: "权限申请处理中", status: "处理中", owner: "OF" },
+          { title: "客户标签已同步", status: "成功", owner: "PG" },
+          { title: "审批链待确认", status: "审核中", owner: "QH" }
+        ]
+      };
+    }
+
+    function getLandingFeatures(style, builderState, profile) {
+      return [
+        {
+          title: `${profile.featureLead} 更明显`,
+          body: style.mood
+        },
+        {
+          title: `${builderState.pageLabel} 结构更贴合`,
+          body: `围绕 ${profile.heroFocus} 重新组织模块，不再把所有品牌套成同一种页面节奏。`
+        },
+        {
+          title: `${profile.taste} 可延展到全站`,
+          body: `切换到仪表盘、登录页、知识库和后台时，依然能保留 ${style.name} 的辨识度。`
+        },
+        {
+          title: "提示词可继续生成",
+          body: `复制当前提示词后，可以继续扩展成 ${builderState.outputFileName} 等真实页面。`
+        }
+      ];
+    }
+
+    function getLandingPlans(style, profile) {
+      return [
+        {
+          name: "探索版",
+          price: "免费",
+          description: `适合快速感受 ${style.name} 的 ${profile.taste}。`
+        },
+        {
+          name: "团队版",
+          price: "¥79",
+          description: "适合继续生成更多页面类型，并统一品牌表达。",
+          featured: true
+        },
+        {
+          name: "企业版",
+          price: "定制",
+          description: "适合沉淀规范、扩展复杂场景与多人协作。"
+        }
+      ];
+    }
+
+    function buildLandingAside(style, builderState, profile) {
+      if (["ai", "developer", "infra"].includes(profile.archetype)) {
+        return `
+          <article class="terminal-card">
+            <div class="terminal-head">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="terminal-lines">
+              <div class="terminal-line"><span>$</span><strong>codex generate --style ${escapeHtml(style.slug)} --page ${escapeHtml(builderState.pageSlug)}</strong></div>
+              <div class="terminal-line is-dim">→ focus: ${escapeHtml(profile.heroFocus)}</div>
+              <div class="terminal-line is-dim">→ output: ${escapeHtml(builderState.outputFileName)}</div>
+              <div class="terminal-line is-success">✓ ${escapeHtml(profile.taste)} 已载入当前预览</div>
+            </div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top">
+              <span class="mini-label">${escapeHtml(profile.snapshotLabel)}</span>
+              <strong>${escapeHtml(profile.snapshotValue)}</strong>
+            </div>
+            <div class="metric-grid">
+              ${profile.snapshotStats.map((item) => `
+                <div><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong></div>
+              `).join("")}
+            </div>
+          </article>
+        `;
+      }
+
+      return `
+        <article class="metric-card spotlight-card">
+          <span class="mini-label">${escapeHtml(profile.snapshotLabel)}</span>
+          <h3>${escapeHtml(profile.taste)}</h3>
+          <p>${escapeHtml(style.mood)}</p>
+          <div class="spotlight-list">
+            ${profile.proof.map((item) => `<div class="spotlight-row"><strong>${escapeHtml(item)}</strong><span>已映射到当前预览</span></div>`).join("")}
+          </div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="mini-label">当前状态</span>
+            <strong>${escapeHtml(profile.snapshotValue)}</strong>
+          </div>
+          <div class="metric-grid">
+            ${profile.snapshotStats.map((item) => `
+              <div><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong></div>
+            `).join("")}
+          </div>
+        </article>
+      `;
+    }
+
+    function getPreviewTheme(style) {
+      const accent = getAccentColor(style);
+      const dark = previewMode === "dark";
+      const archetype = getPreviewArchetype(style);
+      const pageBg = dark ? "#0a0a0a" : "#f7f7f7";
+      let pageBackdrop = `radial-gradient(circle at top right, ${rgba(accent, dark ? 0.14 : 0.10)}, transparent 24%), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(180deg, rgba(255,255,255,0.02) 1px, transparent 1px), ${pageBg}`;
+      let pageBackdropSize = "auto, 36px 36px, 36px 36px, auto";
+      let bodyFont = "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif";
+      let displayFont = bodyFont;
+      let radiusLg = "18px";
+      let radiusMd = "14px";
+      let radiusSm = "12px";
+      let brandMarkRadius = "999px";
+      let heroMeasure = "12ch";
+      let headingSpacing = "-2px";
+
+      if (archetype === "developer") {
+        displayFont = "ui-monospace, SFMono-Regular, Menlo, monospace";
+        radiusLg = "14px";
+        radiusMd = "12px";
+        radiusSm = "10px";
+        pageBackdrop = `radial-gradient(circle at top right, ${rgba(accent, dark ? 0.18 : 0.10)}, transparent 22%), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(180deg, rgba(255,255,255,0.022) 1px, transparent 1px), ${pageBg}`;
+      } else if (archetype === "infra") {
+        displayFont = "ui-monospace, SFMono-Regular, Menlo, monospace";
+        radiusLg = "14px";
+        radiusMd = "12px";
+        radiusSm = "10px";
+        pageBackdrop = `radial-gradient(circle at top center, ${rgba(accent, dark ? 0.12 : 0.08)}, transparent 18%), linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px), linear-gradient(180deg, rgba(255,255,255,0.02) 1px, transparent 1px), ${pageBg}`;
+      } else if (archetype === "design") {
+        radiusLg = "24px";
+        radiusMd = "18px";
+        radiusSm = "14px";
+        brandMarkRadius = "18px";
+        pageBackdrop = `radial-gradient(circle at 12% 18%, ${rgba(accent, dark ? 0.18 : 0.12)}, transparent 22%), radial-gradient(circle at 88% 12%, rgba(255,255,255,${dark ? 0.08 : 0.60}), transparent 18%), linear-gradient(180deg, rgba(255,255,255,0.03), transparent 42%), ${pageBg}`;
+        pageBackdropSize = "auto";
+      } else if (archetype === "fintech") {
+        radiusLg = "18px";
+        radiusMd = "16px";
+        radiusSm = "12px";
+        pageBackdrop = `radial-gradient(circle at top right, ${rgba(accent, dark ? 0.12 : 0.08)}, transparent 20%), linear-gradient(180deg, rgba(255,255,255,0.035), transparent 28%), ${pageBg}`;
+        pageBackdropSize = "auto";
+      } else if (archetype === "automotive") {
+        displayFont = "Georgia, \"Times New Roman\", serif";
+        radiusLg = "12px";
+        radiusMd = "10px";
+        radiusSm = "10px";
+        brandMarkRadius = "3px";
+        heroMeasure = "14ch";
+        headingSpacing = "-1.2px";
+        pageBackdrop = `linear-gradient(180deg, rgba(255,255,255,0.05), transparent 20%), radial-gradient(circle at top center, ${rgba(accent, dark ? 0.16 : 0.09)}, transparent 16%), ${pageBg}`;
+        pageBackdropSize = "auto";
+      } else if (archetype === "ai") {
+        radiusLg = "20px";
+        radiusMd = "16px";
+        radiusSm = "12px";
+        pageBackdrop = `radial-gradient(circle at 18% 12%, ${rgba(accent, dark ? 0.18 : 0.10)}, transparent 20%), radial-gradient(circle at 82% 16%, rgba(255,255,255,${dark ? 0.05 : 0.34}), transparent 18%), linear-gradient(180deg, rgba(255,255,255,0.022), transparent 34%), ${pageBg}`;
+        pageBackdropSize = "auto";
+      }
+
+      return {
+        accent,
+        accentSoft: rgba(accent, dark ? 0.16 : 0.12),
+        accentGlow: rgba(accent, dark ? 0.12 : 0.08),
+        pageBg,
+        pageBackdrop,
+        pageBackdropSize,
+        surface: dark ? "#121212" : "#ffffff",
+        surfaceAlt: dark ? "#1a1a1a" : "#fafafa",
+        panel: dark
+          ? "linear-gradient(180deg, rgba(255,255,255,0.036) 0%, rgba(255,255,255,0.016) 100%)"
+          : "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(250,250,250,0.94) 100%)",
+        panelStrong: dark
+          ? "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.022) 100%)"
+          : "linear-gradient(180deg, #ffffff 0%, #f6f6f8 100%)",
+        panelStroke: dark ? "rgba(255,255,255,0.08)" : "rgba(17,17,17,0.08)",
+        primaryButtonBg: accent,
+        primaryButtonText: getContrastTextColor(accent),
+        secondaryButtonBg: dark ? rgba(accent, 0.12) : rgba(accent, 0.10),
+        secondaryButtonText: dark ? "#f5f5f5" : "#171717",
+        textPrimary: dark ? "#f5f5f5" : "#171717",
+        textSecondary: dark ? "rgba(255,255,255,0.72)" : "#525252",
+        textTertiary: dark ? "rgba(255,255,255,0.45)" : "#737373",
+        border: dark ? "rgba(255,255,255,0.08)" : "rgba(23,23,23,0.08)",
+        shadow: dark
+          ? "rgba(0,0,0,0.35) 0px 16px 48px -24px, rgba(255,255,255,0.04) 0px 0px 0px 1px"
+          : "rgba(23,23,23,0.08) 0px 12px 36px -24px, rgba(23,23,23,0.08) 0px 0px 0px 1px",
+        success: dark ? "#34d399" : "#16a34a",
+        bodyFont,
+        displayFont,
+        radiusLg,
+        radiusMd,
+        radiusSm,
+        brandMarkRadius,
+        heroMeasure,
+        headingSpacing
+      };
+    }
+
+    function buildLandingPreview(style, builderState) {
+      const profile = getPreviewProfile(style);
+      const features = getLandingFeatures(style, builderState, profile);
+      const plans = getLandingPlans(style, profile);
+      return `
+        <header class="nav">
+          <div class="brand-lockup">
+            <span class="brand-mark"></span>
+            <div class="brand-stack">
+              <div class="brand">${escapeHtml(style.name)} ${escapeHtml(profile.brandSuffix)}</div>
+              <span>${escapeHtml(profile.subline)}</span>
+            </div>
+          </div>
+          <nav class="nav-links">${profile.landingNav.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</nav>
+          <div class="nav-actions">
+            <button class="btn secondary">${escapeHtml(profile.secondaryAction)}</button>
+            <button class="btn primary">${escapeHtml(profile.primaryAction)}</button>
+          </div>
+        </header>
+        <section class="hero hero-grid">
+          <div class="hero-copy-block">
+            <span class="pill">Generated · ${escapeHtml(builderState.pageLabel)}</span>
+            <h1>让 ${escapeHtml(style.name)} 的 ${escapeHtml(profile.taste)}，直接落到 ${escapeHtml(builderState.pageLabel)}</h1>
+            <p>${escapeHtml(style.mood)} 这份预览更强调 ${profile.heroFocus}，不会再把所有品牌统一套成同一种站点语气。</p>
+            <div class="hero-actions">
+              <button class="btn primary">切换到 ${escapeHtml(style.name)}</button>
+              <button class="btn secondary">复制当前提示词</button>
+            </div>
+            <div class="proof-row">
+              ${profile.proof.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+            </div>
+          </div>
+          <div class="hero-preview-stack">
+            ${buildLandingAside(style, builderState, profile)}
+          </div>
+        </section>
+        <section class="logo-wall section-card">
+          <div class="section-title">同类品牌参考</div>
+          <div class="logo-grid">${profile.partners.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>
+        </section>
+        <section class="feature-grid">
+          ${features.map((item, index) => `
+            <article class="card">
+              <span class="mini-label">Feature 0${index + 1}</span>
+              <h3>${escapeHtml(item.title)}</h3>
+              <p>${escapeHtml(item.body)}</p>
+            </article>
+          `).join("")}
+        </section>
+        <section class="pricing-grid">
+          ${plans.map((plan) => `
+            <article class="card ${plan.featured ? "featured" : ""}">
+              <span class="mini-label">${escapeHtml(plan.name)}</span>
+              <h3>${escapeHtml(plan.price)}</h3>
+              <p>${escapeHtml(plan.description)}</p>
+            </article>
+          `).join("")}
+        </section>
+        <section class="faq-list section-card">
+          ${["这个页面会自动生成吗？", "切换页面类型会变化吗？", "复制提示词后能继续扩展吗？"].map((item) => `
+            <div class="faq-item"><strong>${escapeHtml(item)}</strong><span>${escapeHtml(profile.faqAnswer)}</span></div>
+          `).join("")}
+        </section>
+      `;
+    }
+
+    function buildDashboardPreview(style, builderState) {
+      const profile = getPreviewProfile(style);
+      return `
+        <div class="dashboard-shell">
+          <aside class="sidebar">
+            <div class="brand">${escapeHtml(style.name)}</div>
+            <div class="sidebar-nav">
+              ${profile.dashboardNav.map((item, index) => `<span class="${index === 0 ? "active" : ""}">${escapeHtml(item)}</span>`).join("")}
+            </div>
+          </aside>
+          <main class="dashboard-main">
+            <section class="dashboard-top">
+              <div>
+                <span class="pill">${escapeHtml(builderState.pageLabel)}</span>
+                <h1>${escapeHtml(style.name)} ${escapeHtml(profile.dashboardTitle)}</h1>
+                <p>${escapeHtml(style.mood)}</p>
+              </div>
+              <button class="btn primary">${escapeHtml(profile.dashboardAction)}</button>
+            </section>
+            <section class="stats-row">
+              ${profile.dashboardStats.map((item) => `
+                <article class="card">
+                  <span class="mini-label">${escapeHtml(item.label)}</span>
+                  <h3>${escapeHtml(item.value)}</h3>
+                  <p>${escapeHtml(item.caption)}</p>
+                </article>
+              `).join("")}
+            </section>
+            <section class="dashboard-grid">
+              <article class="card chart-card">
+                <span class="mini-label">近 7 天趋势</span>
+                <div class="bars">${[42, 58, 55, 76, 64, 81, 70].map((height) => `<span style="height:${height}%"></span>`).join("")}</div>
+              </article>
+              <article class="card list-card">
+                <span class="mini-label">最近动态</span>
+                ${profile.dashboardActivity.map((item) => `<div class="list-row"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.time)}</span></div>`).join("")}
+              </article>
+            </section>
+          </main>
+        </div>
+      `;
+    }
+
+    function buildLoginPreview(style, builderState) {
+      const profile = getPreviewProfile(style);
+      return `
+        <section class="auth-shell">
+          <article class="auth-card">
+            <div>
+              <span class="pill">${escapeHtml(style.name)} · ${escapeHtml(builderState.pageLabel)}</span>
+              <h1>${escapeHtml(profile.loginTitle)}</h1>
+              <p>${escapeHtml(style.mood)}</p>
+            </div>
+            <div class="form-grid">
+              <div class="input">邮箱地址</div>
+              <div class="input">密码</div>
+              <button class="btn primary">${escapeHtml(profile.loginPrimary)}</button>
+              <button class="btn secondary">${escapeHtml(profile.loginSecondary)}</button>
+            </div>
+          </article>
+          <article class="section-card">
+            <div class="section-title">登录体验重点</div>
+            <div class="bullet-list">
+              ${profile.loginBenefits.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+            </div>
+          </article>
+        </section>
+      `;
+    }
+
+    function buildSettingsPreview(style, builderState) {
+      const profile = getPreviewProfile(style);
+      return `
+        <section class="settings-shell">
+          <aside class="settings-nav section-card">
+            ${profile.settingsNav.map((item, index) => `<span class="${index === 0 ? "active" : ""}">${escapeHtml(item)}</span>`).join("")}
+          </aside>
+          <div class="settings-main">
+            <article class="card">
+              <span class="mini-label">${escapeHtml(builderState.pageLabel)}</span>
+              <h3>${escapeHtml(profile.settingsTitle)}</h3>
+              <div class="form-grid">
+                ${profile.settingsFields.map((item) => `<div class="input">${escapeHtml(item)}</div>`).join("")}
+              </div>
+            </article>
+            <article class="card">
+              <span class="mini-label">偏好设置</span>
+              ${profile.settingToggles.map((item) => `<div class="toggle-row"><strong>${escapeHtml(item.label)}</strong><span class="toggle ${item.enabled ? "on" : ""}"></span></div>`).join("")}
+            </article>
+          </div>
+        </section>
+      `;
+    }
+
+    function buildDocsPreview(style, builderState) {
+      const profile = getPreviewProfile(style);
+      return `
+        <section class="docs-shell">
+          <aside class="section-card docs-nav">
+            ${profile.docsNav.map((item, index) => `<span class="${index === 0 ? "active" : ""}">${escapeHtml(item)}</span>`).join("")}
+          </aside>
+          <article class="section-card docs-content">
+            <span class="pill">${escapeHtml(style.name)} · ${escapeHtml(builderState.pageLabel)}</span>
+            <h1>${escapeHtml(profile.docsTitle)}</h1>
+            <p>${escapeHtml(style.mood)} 这份知识库预览更强调 ${profile.docsFocus}。</p>
+            <h3>Quick start</h3>
+            <div class="code-block">${escapeHtml(profile.docsCommand)}</div>
+            <div class="bullet-list">
+              ${profile.docsBullets.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+            </div>
+          </article>
+        </section>
+      `;
+    }
+
+    function buildAdminPreview(style, builderState) {
+      const profile = getPreviewProfile(style);
+      return `
+        <section class="admin-shell">
+          <div class="dashboard-top">
+            <div>
+              <span class="pill">${escapeHtml(style.name)} · ${escapeHtml(builderState.pageLabel)}</span>
+              <h1>${escapeHtml(profile.adminTitle)}</h1>
+              <p>${escapeHtml(style.mood)}</p>
+            </div>
+            <button class="btn primary">${escapeHtml(profile.adminAction)}</button>
+          </div>
+          <div class="stats-row">
+            ${profile.adminStats.map((item) => `
+              <article class="card">
+                <span class="mini-label">${escapeHtml(item.label)}</span>
+                <h3>${escapeHtml(item.value)}</h3>
+                <p>${escapeHtml(item.caption)}</p>
+              </article>
+            `).join("")}
+          </div>
+          <div class="table-card section-card">
+            <div class="table-head"><strong>最近事件</strong><span>状态</span><span>负责人</span></div>
+            ${profile.adminEvents.map((item) => `
+              <div class="table-row"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.status)}</span><span>${escapeHtml(item.owner)}</span></div>
+            `).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    const APP_FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none"><defs><linearGradient id="accent" x1="64" y1="72" x2="182" y2="188" gradientUnits="userSpaceOnUse"><stop stop-color="#8EA5FF"/><stop offset="1" stop-color="#4E78FF"/></linearGradient><radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(178 62) rotate(131.987) scale(108.301)"><stop stop-color="#7D96FF" stop-opacity="0.34"/><stop offset="1" stop-color="#7D96FF" stop-opacity="0"/></radialGradient></defs><rect width="256" height="256" rx="60" fill="#090B10"/><rect x="10" y="10" width="236" height="236" rx="50" fill="#0E1118" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="2"/><circle cx="178" cy="62" r="84" fill="url(#glow)"/><path d="M74 90H182L138 134H96" stroke="#F5F7FB" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><path d="M74 154H182L138 198H96" stroke="url(#accent)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    const APP_FAVICON_DATA_URI = `data:image/svg+xml,${encodeURIComponent(APP_FAVICON_SVG)}`;
+
+    function buildGeneratedPreviewHtml(style) {
+      const builderState = getBuilderState(style);
+      const theme = getPreviewTheme(style);
+      const pageSlug = builderState.pageSlug;
+      const markupByPage = {
+        landing: buildLandingPreview(style, builderState),
+        dashboard: buildDashboardPreview(style, builderState),
+        login: buildLoginPreview(style, builderState),
+        settings: buildSettingsPreview(style, builderState),
+        docs: buildDocsPreview(style, builderState),
+        admin: buildAdminPreview(style, builderState)
+      };
+      const markup = markupByPage[pageSlug] || buildLandingPreview(style, builderState);
+
+      return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escapeHtml(style.name)} · ${escapeHtml(builderState.pageLabel)}</title>
+  <link rel="icon" type="image/svg+xml" href="${APP_FAVICON_DATA_URI}">
+  <meta name="theme-color" content="${previewMode === "dark" ? "#0a0a0a" : "#f3f5f8"}">
+  <style>
+    :root {
+      --page-bg: ${theme.pageBg};
+      --surface: ${theme.surface};
+      --surface-alt: ${theme.surfaceAlt};
+      --panel: ${theme.panel};
+      --panel-strong: ${theme.panelStrong};
+      --panel-stroke: ${theme.panelStroke};
+      --text-primary: ${theme.textPrimary};
+      --text-secondary: ${theme.textSecondary};
+      --text-tertiary: ${theme.textTertiary};
+      --border: ${theme.border};
+      --accent: ${theme.accent};
+      --accent-soft: ${theme.accentSoft};
+      --accent-glow: ${theme.accentGlow};
+      --success: ${theme.success};
+      --shadow: ${theme.shadow};
+      --button-primary-bg: ${theme.primaryButtonBg};
+      --button-primary-text: ${theme.primaryButtonText};
+      --button-secondary-bg: ${theme.secondaryButtonBg};
+      --button-secondary-text: ${theme.secondaryButtonText};
+      --body-font: ${theme.bodyFont};
+      --display-font: ${theme.displayFont};
+      --radius-lg: ${theme.radiusLg};
+      --radius-md: ${theme.radiusMd};
+      --radius-sm: ${theme.radiusSm};
+      --brand-mark-radius: ${theme.brandMarkRadius};
+      --hero-measure: ${theme.heroMeasure};
+      --heading-spacing: ${theme.headingSpacing};
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--body-font);
+      background: ${theme.pageBackdrop};
+      background-size: ${theme.pageBackdropSize};
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .app { min-height: 100vh; padding: 22px; }
+    .nav, .section-card, .card, .auth-card, .settings-nav, .sidebar, .docs-nav {
+      background: var(--panel);
+      border: 1px solid var(--panel-stroke);
+      box-shadow: var(--shadow);
+    }
+    .nav {
+      min-height: 58px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 16px;
+      margin-bottom: 18px;
+    }
+    .brand-lockup { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand-mark {
+      width: 10px; height: 10px; border-radius: var(--brand-mark-radius);
+      background: linear-gradient(180deg, #ffffff 0%, ${theme.accent} 100%);
+      box-shadow: 0 0 18px ${theme.accentSoft};
+      flex: 0 0 auto;
+    }
+    .brand-stack { display: grid; gap: 2px; min-width: 0; }
+    .brand { font-family: var(--display-font); font-weight: 700; letter-spacing: var(--heading-spacing); }
+    .brand-stack span { color: var(--text-tertiary); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nav-links { display: flex; gap: 14px; color: var(--text-secondary); font-size: 13px; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .hero, .dashboard-top { display: grid; gap: 14px; }
+    .hero { padding: 20px 0 24px; }
+    .hero-grid { grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr); align-items: stretch; gap: 18px; }
+    .hero-copy-block { display: grid; gap: 16px; align-content: start; }
+    .hero h1, .dashboard-top h1, .docs-content h1, .auth-card h1 {
+      margin: 0;
+      font-family: var(--display-font);
+      font-size: 42px;
+      line-height: 0.98;
+      letter-spacing: var(--heading-spacing);
+      max-width: var(--hero-measure);
+    }
+    .hero p, .dashboard-top p, .auth-card p, .docs-content p { margin: 0; color: var(--text-secondary); }
+    .pill, .mini-label {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 28px;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, var(--accent-soft) 0%, rgba(255,255,255,0.04) 100%);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 0 1px rgba(255,255,255,0.10);
+    }
+    .mini-label { background: transparent; padding: 0; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.32px; }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .proof-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .proof-row span {
+      display: inline-flex; min-height: 28px; align-items: center; padding: 0 10px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(180deg, var(--accent-soft) 0%, rgba(255,255,255,0.02) 100%); color: var(--text-secondary); font-size: 12px;
+    }
+    .hero-preview-stack { display: grid; gap: 12px; align-content: start; }
+    .terminal-card, .metric-card {
+      border-radius: var(--radius-lg);
+      background: var(--panel-strong);
+      border: 1px solid var(--panel-stroke);
+      box-shadow: var(--shadow);
+    }
+    .terminal-card { padding: 14px; }
+    .terminal-head { display: flex; gap: 6px; margin-bottom: 14px; }
+    .terminal-head span { width: 8px; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.16); }
+    .terminal-lines { display: grid; gap: 10px; font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .terminal-line { color: var(--text-secondary); }
+    .terminal-line span { color: var(--text-tertiary); margin-right: 8px; }
+    .terminal-line strong { color: var(--text-primary); font-weight: 600; }
+    .terminal-line.is-dim { color: var(--text-tertiary); }
+    .terminal-line.is-success { color: var(--success); }
+    .metric-card { padding: 16px; display: grid; gap: 14px; }
+    .metric-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .metric-top strong { font-size: 13px; letter-spacing: -0.02em; }
+    .metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .metric-grid div { display: grid; gap: 4px; }
+    .metric-grid span { font-size: 12px; color: var(--text-tertiary); }
+    .metric-grid strong { font-size: 18px; letter-spacing: -0.04em; }
+    .spotlight-card h3 { margin: 0; font-family: var(--display-font); font-size: 30px; letter-spacing: var(--heading-spacing); }
+    .spotlight-card p { margin: 0; }
+    .spotlight-list { display: grid; gap: 10px; }
+    .spotlight-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    .spotlight-row strong { color: var(--text-primary); font-size: 13px; }
+    .btn {
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--panel-stroke);
+      background: var(--button-secondary-bg);
+      color: var(--button-secondary-text);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .btn.primary {
+      background: var(--button-primary-bg);
+      color: var(--button-primary-text);
+      border-color: transparent;
+      box-shadow: 0 16px 32px -24px var(--accent-soft), inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+    .btn.secondary { background: var(--button-secondary-bg); }
+    .logo-wall, .faq-list, .table-card { padding: 16px; margin-top: 16px; border-radius: var(--radius-lg); }
+    .section-title { font-size: 14px; font-weight: 600; margin-bottom: 14px; color: var(--text-tertiary); }
+    .logo-grid, .feature-grid, .pricing-grid, .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .feature-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .logo-grid span, .card {
+      border-radius: var(--radius-md);
+      padding: 16px;
+      background: var(--panel-strong);
+      border: 1px solid var(--panel-stroke);
+    }
+    .logo-grid span { display: flex; align-items: center; justify-content: center; min-height: 72px; color: var(--text-secondary); }
+    .card h3 { margin: 10px 0 0; font-size: 24px; line-height: 1.1; letter-spacing: -0.8px; }
+    .card p { margin: 10px 0 0; color: var(--text-secondary); font-size: 14px; }
+    .pricing-grid .featured { background: linear-gradient(180deg, var(--accent-soft), rgba(255,255,255,0.03)); }
+    .faq-item, .list-row, .table-row, .toggle-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .faq-item:last-child, .list-row:last-child, .table-row:last-child, .toggle-row:last-child { border-bottom: 0; }
+    .dashboard-shell, .settings-shell, .docs-shell { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; }
+    .sidebar, .settings-nav, .docs-nav {
+      border-radius: var(--radius-lg); padding: 16px;
+      display: grid; gap: 10px; height: fit-content;
+    }
+    .sidebar-nav, .docs-nav { display: grid; gap: 10px; color: var(--text-secondary); font-size: 14px; }
+    .sidebar-nav .active, .settings-nav .active, .docs-nav .active { color: var(--text-primary); font-weight: 600; }
+    .dashboard-main, .settings-main, .docs-content { display: grid; gap: 16px; }
+    .dashboard-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+    .chart-card .bars { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; align-items: end; min-height: 160px; margin-top: 18px; }
+    .chart-card .bars span { display: block; border-radius: 8px; background: linear-gradient(180deg, var(--accent), ${theme.accentSoft}); }
+    .auth-shell { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; align-items: start; }
+    .auth-card { border-radius: var(--radius-lg); padding: 20px; display: grid; gap: 18px; }
+    .form-grid { display: grid; gap: 12px; }
+    .input {
+      min-height: 44px; display: flex; align-items: center; padding: 0 14px; border-radius: var(--radius-sm);
+      background: var(--panel-strong); color: var(--text-tertiary); border: 1px solid var(--panel-stroke);
+    }
+    .bullet-list { display: grid; gap: 10px; color: var(--text-secondary); }
+    .bullet-list span::before { content: "• "; color: var(--accent); }
+    .toggle { width: 42px; height: 24px; border-radius: 9999px; background: rgba(127,127,127,0.24); position: relative; }
+    .toggle::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+    .toggle.on { background: ${theme.accent}; }
+    .toggle.on::after { left: 21px; }
+    .code-block {
+      margin-top: 14px; padding: 16px; border-radius: var(--radius-md); background: ${previewMode === "dark" ? "#0d0d0d" : "#111"};
+      color: #f7f7f7; white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px;
+    }
+    .table-head, .table-row { display: grid; grid-template-columns: 1.4fr 0.8fr 0.6fr; gap: 12px; }
+    .table-head { color: var(--text-tertiary); font-size: 12px; text-transform: uppercase; letter-spacing: 0.32px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .table-row { padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .table-row:last-child { border-bottom: 0; }
+    @media (max-width: 900px) {
+      .hero-grid, .dashboard-shell, .settings-shell, .docs-shell, .auth-shell, .dashboard-grid { grid-template-columns: 1fr; }
+      .logo-grid, .feature-grid, .pricing-grid, .stats-row, .metric-grid { grid-template-columns: 1fr; }
+      .nav { flex-wrap: wrap; padding: 14px; }
+      .nav-links { display: none; }
+      .nav-actions { width: 100%; }
+      .hero h1, .dashboard-top h1, .docs-content h1, .auth-card h1 { font-size: 32px; max-width: none; }
+      .hero-actions .btn, .nav-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    ${markup}
+  </div>
+</body>
+</html>`;
+    }
+
+    function previewPathForStyle(style, mode = previewMode) {
+      return mode === "light" ? localLightPreview(style) : localDarkPreview(style);
+    }
+
+    function renderWorkspacePanel() {
+      const style = styleBySlug(previewStyleSlug) || styleBySlug(currentActiveStyle) || styles[0];
+      if (!style) return;
+      const { pageLabel, pageSlug, outputFileName } = getBuilderState(style);
+      const previewAccent = getAccentColor(style);
+      const isLocalMode = isLocalWorkspaceMode();
+
+      workspaceStyleName.textContent = style.name;
+      workspaceStyleSlug.textContent = `风格代号 · ${style.slug}`;
+      workspaceStyleCopy.textContent = getStyleNarrative(style, pageLabel);
+      workspaceTags.innerHTML = style.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+      generationPageType.textContent = pageLabel;
+      generationOutputFile.textContent = outputFileName;
+      generationPromptPreview.textContent = aiPrompt(style);
+      copyCurrentPrompt.textContent = `复制当前${pageLabel}提示词`;
+      copyPromptTemplateButton.textContent = `复制${pageLabel}万能提示词`;
+      copyCurrentCommand.hidden = !isLocalMode;
+      copyCurrentCommand.textContent = secondaryActionLabel();
+      workspaceActionRow.classList.toggle("is-single", !isLocalMode);
+      previewFrameWrap.style.setProperty("--preview-accent", previewAccent);
+      previewFrameWrap.style.setProperty("--preview-accent-soft", rgba(previewAccent, 0.18));
+      previewFrameWrap.style.setProperty("--preview-accent-ring", rgba(previewAccent, 0.30));
+      renderPageTypeTabs();
+
+      const brandPreviewPath = previewPathForStyle(style);
+      const previewHtml = buildGeneratedPreviewHtml(style);
+      const nextPreviewBlobUrl = URL.createObjectURL(new Blob([previewHtml], { type: "text/html" }));
+      const previousPreviewBlobUrl = currentPreviewBlobUrl;
+
+      currentPreviewBlobUrl = nextPreviewBlobUrl;
+      workspacePreviewTitle.textContent = `${style.name} · ${pageLabel}`;
+      workspacePreviewPath.textContent = getPreviewDescriptor(style, pageLabel);
+      previewBrowserAddress.textContent = `${currentShareHost()}${sanitizeSlug(style.slug)}/${pageSlug}`;
+      previewBrowserStatus.textContent = `${previewMode === "light" ? "Light" : "Dark"} preview`;
+      openCurrentPreview.href = nextPreviewBlobUrl;
+      openBrandSystemPreview.href = brandPreviewPath;
+      openCurrentDesign.href = localDesignDoc(style);
+      beginPreviewTransition();
+      previewFrame.src = nextPreviewBlobUrl;
+
+      if (previousPreviewBlobUrl) {
+        URL.revokeObjectURL(previousPreviewBlobUrl);
+      }
+
+      modeSwitch.querySelectorAll("[data-mode]").forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.mode === previewMode);
+      });
+    }
+
+    async function switchStyle(style) {
+      try {
+        if (!workspaceApiEnabled || workspaceMode === "demo") {
+          activateStyleLocally(style, { message: `已切换到 ${style.name}，右侧预览与提示词已同步更新。` });
+          showToast(`已切换到 ${style.name}`);
+          return;
+        }
+
+        loadingLine.textContent = `正在同步 ${style.name} 风格…`;
+        const response = await fetch("/api/use-style", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ style: style.slug })
+        });
+        const result = await response.json();
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || "切换失败");
+        }
+        setWorkspaceMode("local");
+        currentActiveStyle = result.currentStyle || style.slug;
+        previewStyleSlug = currentActiveStyle;
+        previewControlSource = "active";
+        setActiveStyleBadge(currentActiveStyle);
+        loadingLine.textContent = `已切换到 ${style.name}，预览已同步更新。`;
+        renderWorkspacePanel();
+        renderCards();
+        showToast(`已切换到 ${style.name}`);
+      } catch (error) {
+        setWorkspaceMode("demo");
+        activateStyleLocally(style, { message: `已切换到 ${style.name}，当前页面预览已同步更新。` });
+        showToast("当前为在线分享模式，本次切换仅更新页面预览");
+      }
+    }
+
+    async function copyText(text, successMessage) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast(successMessage);
+      } catch (error) {
+        showToast("复制失败，请手动复制");
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(message) {
+      toastEl.textContent = message;
+      toastEl.classList.add("is-visible");
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => {
+        toastEl.classList.remove("is-visible");
+      }, 1800);
+    }
+
+    function renderPageTypeTabs(scrollActive = false) {
+      let activeButton = null;
+      pageTypeTabs.querySelectorAll("[data-page-value]").forEach((button) => {
+        const isActive = button.dataset.pageValue === currentPageTypeValue;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+        button.tabIndex = isActive ? 0 : -1;
+        if (isActive) {
+          activeButton = button;
+        }
+      });
+
+      if (scrollActive && activeButton) {
+        activeButton.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      }
+    }
+
+    function setCurrentPageType(value, options = {}) {
+      const nextPageType = getPageTypeByValue(value);
+      const hasChanged = nextPageType.value !== currentPageTypeValue;
+      currentPageTypeValue = nextPageType.value;
+
+      if (!hasChanged && !options.force) {
+        return;
+      }
+
+      loadingLine.textContent = `已切换为${nextPageType.label}预览，右侧画布已同步更新。`;
+      renderPageTypeTabs(options.scrollActive ?? true);
+      renderWorkspacePanel();
+      renderCards();
+    }
+
+    function beginPreviewTransition() {
+      if (!previewFrameWrap) return;
+      previewTransitionToken += 1;
+      const currentToken = previewTransitionToken;
+      previewFrameWrap.classList.add("is-transitioning");
+      window.clearTimeout(previewTransitionTimer);
+      previewTransitionTimer = window.setTimeout(() => {
+        if (currentToken === previewTransitionToken) {
+          previewFrameWrap.classList.remove("is-transitioning");
+        }
+      }, 420);
+    }
+
+    function scrollToPreviewArea() {
+      const scrollTarget = workspacePanel || workspacePreviewPanel;
+      if (!scrollTarget) return;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.requestAnimationFrame(() => {
+        const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY;
+        const toolbarHeight = toolbarSection ? toolbarSection.getBoundingClientRect().height : 0;
+        const toolbarTop = toolbarSection ? parseFloat(window.getComputedStyle(toolbarSection).top) || 0 : 0;
+        const visualGap = 18;
+        const nextTop = Math.max(targetTop - toolbarHeight - toolbarTop - visualGap, 0);
+        window.scrollTo({
+          top: nextTop,
+          behavior: prefersReducedMotion ? "auto" : "smooth"
+        });
+      });
+    }
+
+    function renderFilters() {
+      filtersEl.innerHTML = filters.map((filter) => `
+        <button class="filter-chip ${filter === currentFilter ? "is-active" : ""}" data-filter="${filter}" type="button">
+          <span>${filter}</span>
+          <span class="filter-chip-count">${getFilterCount(filter)}</span>
+        </button>
+      `).join("");
+
+      filtersEl.querySelectorAll("[data-filter]").forEach((button) => {
+        button.addEventListener("click", () => {
+          currentFilter = button.dataset.filter;
+          renderFilters();
+          handleSearchInput();
+        });
+      });
+    }
+
+    function getVisibleStyles() {
+      const query = searchInput.value.trim();
+      const normalizedQuery = normalizeSearchValue(query);
+      const visibleStyles = styles.filter((style) => {
+        const matchesFilter = currentFilter === "All" || style.category === currentFilter;
+        const matchesQuery = !normalizedQuery || getStyleSearchRank(style, normalizedQuery) > 0;
+        return matchesFilter && matchesQuery;
+      });
+
+      if (!query) {
+        return visibleStyles;
+      }
+
+      return visibleStyles.slice().sort((left, right) => {
+        const scoreDelta = getStyleSearchRank(right, query) - getStyleSearchRank(left, query);
+        if (scoreDelta !== 0) {
+          return scoreDelta;
+        }
+        return left.name.localeCompare(right.name);
+      });
+    }
+
+    function renderCards(visibleStyles = getVisibleStyles()) {
+      const { label: pageLabel } = getCurrentPageType();
+      const isLocalMode = isLocalWorkspaceMode();
+      if (visibleCountEl) {
+        visibleCountEl.textContent = String(visibleStyles.length);
+      }
+      emptyState.classList.toggle("is-visible", visibleStyles.length === 0);
+
+      cardGrid.innerHTML = visibleStyles.map((style) => `
+        <article class="card ${style.slug === previewStyleSlug ? "is-previewing" : ""} ${style.slug === currentActiveStyle ? "is-current" : ""}" style="--brand-glow:${style.glow}">
+          <div class="card-header">
+            <div class="card-topline">
+              <span class="category-chip">${style.category}</span>
+              <div class="card-badges">
+                ${style.slug === previewStyleSlug ? '<span class="preview-badge">预览中</span>' : ""}
+                ${style.slug === currentActiveStyle ? '<span class="active-badge">当前品牌</span>' : ""}
+              </div>
+            </div>
+            <div class="brand-identity">
+              <span class="brand-logo" aria-hidden="true">
+                <img
+                  class="brand-logo-image"
+                  src="${escapeHtml(getBrandLogoPrimary(style))}"
+                  data-fallback-src="${escapeHtml(getBrandLogoSecondary(style))}"
+                  alt="${escapeHtml(style.name)} logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                >
+                <span class="brand-logo-fallback">${escapeHtml(getBrandLogoFallback(style))}</span>
+              </span>
+              <div class="brand-meta">
+                <div class="brand-name">${style.name}</div>
+                <div class="slug">${style.slug}</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="mood">${style.mood}</div>
+            <div class="card-recommend">
+              <div class="card-scenes">${getStyleScenes(style).map((scene) => `<span class="scene-pill">${scene}</span>`).join("")}</div>
+            </div>
+            <div class="tags">${style.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+          </div>
+          <div class="card-actions">
+            <div class="action-row">
+              <a class="action-button action-button-muted" href="${localDesignDoc(style)}" target="_blank" rel="noreferrer">打开 DESIGN.MD</a>
+              <button class="action-button action-button-muted" type="button" data-copy-prompt="${style.slug}">复制${pageLabel}提示词</button>
+            </div>
+            ${isLocalMode ? `
+            <div class="command">
+              <span class="command-text">${useCommand(style)}</span>
+              <button class="action-button" type="button" data-copy-use="${style.slug}" style="min-height:30px; padding:0 10px; font-size:12px;">复制切换命令</button>
+            </div>
+            ` : ""}
+            <button class="action-button action-button-primary ${style.slug === currentActiveStyle ? "is-current" : ""}" type="button" data-switch-style="${style.slug}">
+              ${style.slug === currentActiveStyle ? "当前品牌" : "一键切换"}
+            </button>
+          </div>
+        </article>
+      `).join("");
+
+      bindBrandLogoFallbacks();
+
+      cardGrid.querySelectorAll("[data-switch-style]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const style = styles.find((item) => item.slug === button.dataset.switchStyle);
+          if (style.slug === currentActiveStyle) {
+            showToast(`当前已经是 ${style.name}`);
+            return;
+          }
+          await switchStyle(style);
+          scrollToPreviewArea();
+        });
+      });
+
+      cardGrid.querySelectorAll("[data-copy-use]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const style = styles.find((item) => item.slug === button.dataset.copyUse);
+          copyText(useCommand(style), `已复制本地切换命令：${style.name}`);
+        });
+      });
+
+      cardGrid.querySelectorAll("[data-copy-prompt]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const style = styles.find((item) => item.slug === button.dataset.copyPrompt);
+          copyText(aiPrompt(style), `已复制 ${style.name} ${pageLabel}提示词`);
+        });
+      });
+    }
+
+    function handleSearchInput() {
+      const visibleStyles = getVisibleStyles();
+      searchSuggestions = getSearchSuggestions(visibleStyles);
+      syncSearchHighlightWithinBounds();
+
+      if (!searchInput.value.trim()) {
+        clearSearchState();
+        renderCards(visibleStyles);
+        renderSearchPanel();
+        return;
+      }
+
+      const highlightedStyle = getHighlightedSearchStyle();
+      if (highlightedStyle) {
+        const shouldSyncPreview = previewStyleSlug !== highlightedStyle.slug || previewControlSource !== "search";
+        if (shouldSyncPreview) {
+          previewStyleSlug = highlightedStyle.slug;
+          previewControlSource = "search";
+          loadingLine.textContent = `已根据搜索定位到 ${highlightedStyle.name}，右侧预览已联动。`;
+          renderWorkspacePanel();
+        }
+      } else if (previewControlSource === "search") {
+        const style = styleBySlug(currentActiveStyle) || styles[0];
+        if (style) {
+          previewStyleSlug = style.slug;
+          previewControlSource = "active";
+          loadingLine.textContent = `没有匹配品牌，已恢复到 ${style.name} 当前预览。`;
+          renderWorkspacePanel();
+        }
+      }
+
+      renderCards(visibleStyles);
+      renderSearchPanel();
+    }
+
+    copyPromptTemplateButton.addEventListener("click", () => {
+      const { label: pageLabel, slug: pageSlug } = getCurrentPageType();
+      const template = `用 {品牌} 风格做一个 ${pageLabel}，输出为 {品牌}-${pageSlug}.html，并启动预览`;
+      copyText(template, `已复制${pageLabel}万能提示词`);
+    });
+
+    searchInput.addEventListener("focus", () => {
+      isSearchFocused = true;
+      renderSearchPanel();
+    });
+    searchInput.addEventListener("blur", () => {
+      isSearchFocused = false;
+      window.setTimeout(() => {
+        renderSearchPanel();
+      }, 80);
+    });
+    searchInput.addEventListener("input", handleSearchInput);
+    searchInput.addEventListener("keydown", (event) => {
+      const hasSuggestions = searchSuggestions.length > 0;
+
+      if (event.key === "Escape") {
+        if (!searchInput.value.trim()) {
+          return;
+        }
+        event.preventDefault();
+        clearSearchState();
+        renderCards();
+        renderSearchPanel();
+        return;
+      }
+
+      if (!hasSuggestions) {
+        return;
+      }
+
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const step = event.key === "ArrowDown" ? 1 : -1;
+        searchHighlightIndex = (searchHighlightIndex + step + searchSuggestions.length) % searchSuggestions.length;
+        const style = getHighlightedSearchStyle();
+        if (style) {
+          previewStyleSlug = style.slug;
+          previewControlSource = "search";
+          loadingLine.textContent = `已根据搜索定位到 ${style.name}，右侧预览已联动。`;
+          renderWorkspacePanel();
+          renderCards();
+          renderSearchPanel();
+        }
+        return;
+      }
+
+      if (event.key === "Enter") {
+        const style = getHighlightedSearchStyle();
+        if (!style) {
+          return;
+        }
+        event.preventDefault();
+        commitSearchSelection(style);
+      }
+    });
+    pageTypeTabs.querySelectorAll("[data-page-value]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setCurrentPageType(button.dataset.pageValue, { scrollActive: true });
+      });
+    });
+    pageTypeTabs.addEventListener("keydown", (event) => {
+      const keys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"];
+      if (!keys.includes(event.key)) {
+        return;
+      }
+
+      const buttons = Array.from(pageTypeTabs.querySelectorAll("[data-page-value]"));
+      const currentIndex = Math.max(0, buttons.findIndex((button) => button.dataset.pageValue === currentPageTypeValue));
+      let nextIndex = currentIndex;
+
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        nextIndex = (currentIndex + 1) % buttons.length;
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        nextIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = buttons.length - 1;
+      }
+
+      event.preventDefault();
+      buttons[nextIndex].focus();
+      buttons[nextIndex].click();
+    });
+
+    modeSwitch.querySelectorAll("[data-mode]").forEach((button) => {
+      button.addEventListener("click", () => {
+        previewMode = button.dataset.mode;
+        const { label: pageLabel } = getCurrentPageType();
+        loadingLine.textContent = `已切换为${previewMode === "light" ? "浅色" : "深色"}${pageLabel}预览。`;
+        renderWorkspacePanel();
+      });
+    });
+
+    copyCurrentPrompt.addEventListener("click", () => {
+      const style = styleBySlug(previewStyleSlug) || styleBySlug(currentActiveStyle) || styles[0];
+      copyText(aiPrompt(style), `已复制 ${style.name} 当前提示词`);
+    });
+
+    copyCurrentCommand.addEventListener("click", () => {
+      const style = styleBySlug(previewStyleSlug) || styleBySlug(currentActiveStyle) || styles[0];
+      copyText(secondaryActionPayload(style), secondaryActionToast(style));
+    });
+    previewFrame.addEventListener("load", () => {
+      const currentToken = previewTransitionToken;
+      window.clearTimeout(previewTransitionTimer);
+      previewTransitionTimer = window.setTimeout(() => {
+        if (currentToken === previewTransitionToken) {
+          previewFrameWrap.classList.remove("is-transitioning");
+        }
+      }, 140);
+    });
+
+    async function loadCurrentActiveStyle() {
+      if (!workspaceApiEnabled) {
+        setWorkspaceMode("demo");
+        currentActiveStyle = previewStyleSlug || "vercel";
+        setActiveStyleBadge(currentActiveStyle);
+        loadingLine.textContent = "在线分享模式：切换品牌、页面类型与明暗预览，右侧画布会即时联动。";
+        renderWorkspacePanel();
+        renderCards();
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/status", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("failed");
+        }
+        const payload = await response.json();
+        const value = (payload.currentStyle || "").trim();
+        if (value) {
+          setWorkspaceMode("local");
+          currentActiveStyle = value;
+          previewStyleSlug = value;
+          previewControlSource = "active";
+          setActiveStyleBadge(value);
+          loadingLine.textContent = `已连接本地联动，当前品牌为 ${styleBySlug(value)?.name || value}。`;
+        } else {
+          setWorkspaceMode("local");
+          activeStyleLabel.textContent = "未设置";
+          loadingLine.textContent = "本地联动已连接，暂未选择品牌。";
+        }
+      } catch (error) {
+        setWorkspaceMode("demo");
+        currentActiveStyle = previewStyleSlug || "vercel";
+        setActiveStyleBadge(currentActiveStyle);
+        loadingLine.textContent = "在线分享模式：切换品牌、页面类型与明暗预览，右侧画布会即时联动。";
+      }
+      renderWorkspacePanel();
+      renderCards();
+    }
+
+    totalCountEl.textContent = String(styles.length);
+    if (allCountEl) {
+      allCountEl.textContent = String(styles.length);
+    }
+
+    window.addEventListener("beforeunload", () => {
+      if (currentPreviewBlobUrl) {
+        URL.revokeObjectURL(currentPreviewBlobUrl);
+      }
+    });
+    syncShareMeta();
+    renderFilters();
+    loadCurrentActiveStyle();
+  </script>
+</body>
+</html>

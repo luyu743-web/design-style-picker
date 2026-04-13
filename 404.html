@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>品牌风格生成器</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/style-picker-mark.svg">
+  <link rel="shortcut icon" href="./assets/style-picker-mark.svg">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="refresh" content="0; url=./style-picker.html">
+  <script>
+    const target = new URL("./style-picker.html", window.location.href);
+    target.search = window.location.search;
+    target.hash = window.location.hash;
+    window.location.replace(target.href);
+  </script>
+</head>
+<body></body>
+</html>
